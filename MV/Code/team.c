@@ -10,7 +10,7 @@ sTeam Teams[MAXTEAMS];
 int TeamCounter = 0;
 
 void getString(char * str){
-
+//das ist Neinkobs kommentar
 }
 
 void createTeam(){

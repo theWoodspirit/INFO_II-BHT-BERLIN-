@@ -1,0 +1,32 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+D:/Uni/2.Semester/Informatik II/MV/Code/datastructure.h
+
+D:/Uni/2.Semester/Informatik II/MV/Code/team.c
+../Factory/Tools/tools.h
+D:/Uni/2.Semester/Informatik II/MV/Factory/Tools/tools.h
+datastructure.h
+D:/Uni/2.Semester/Informatik II/MV/Code/datastructure.h
+team.h
+D:/Uni/2.Semester/Informatik II/MV/Code/team.h
+stdio.h
+-
+string.h
+D:/Uni/2.Semester/Informatik II/MV/Code/string.h
+../Factory/DateTime/datetime.h
+D:/Uni/2.Semester/Informatik II/MV/Factory/DateTime/datetime.h
+
+D:/Uni/2.Semester/Informatik II/MV/Code/team.h
+datastructure.h
+D:/Uni/2.Semester/Informatik II/MV/Code/datastructure.h
+
+D:/Uni/2.Semester/Informatik II/MV/Factory/DateTime/datetime.h
+
+D:/Uni/2.Semester/Informatik II/MV/Factory/Tools/tools.h
+

@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CodeBlocks_project_file>
+	<FileVersion major="1" minor="6"/>
+	<Project>
+		<Option title="MV"/>
+		<Option makefile_is_custom="1"/>
+		<Option compiler="gcc"/>
+		<Option virtualFolders="CMake Files\;"/>
+		<Build>
+			<Target title="all">
+				<Option working_dir="D:/Uni/2.Semester/Informatik II/MV/cmake-build-debug"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="C:/mingw/mingw64/bin/mingw32-make.exe -f &quot;D:/Uni/2.Semester/Informatik II/MV/cmake-build-debug/Makefile&quot;  VERBOSE=1 all"/>
+					<CompileFile command="C:/mingw/mingw64/bin/mingw32-make.exe -f &quot;D:/Uni/2.Semester/Informatik II/MV/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="C:/mingw/mingw64/bin/mingw32-make.exe -f &quot;D:/Uni/2.Semester/Informatik II/MV/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="C:/mingw/mingw64/bin/mingw32-make.exe -f &quot;D:/Uni/2.Semester/Informatik II/MV/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="MV">
+				<Option output="D:/Uni/2.Semester/Informatik II/MV/cmake-build-debug/MV.exe" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="D:/Uni/2.Semester/Informatik II/MV/cmake-build-debug"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="C:/mingw/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/8.1.0/include"/>
+					<Add directory="C:/mingw/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/8.1.0/include-fixed"/>
+					<Add directory="C:/mingw/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/8.1.0/../../../../x86_64-w64-mingw32/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="C:/mingw/mingw64/bin/mingw32-make.exe -f &quot;D:/Uni/2.Semester/Informatik II/MV/cmake-build-debug/Makefile&quot;  VERBOSE=1 MV"/>
+					<CompileFile command="C:/mingw/mingw64/bin/mingw32-make.exe -f &quot;D:/Uni/2.Semester/Informatik II/MV/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="C:/mingw/mingw64/bin/mingw32-make.exe -f &quot;D:/Uni/2.Semester/Informatik II/MV/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="C:/mingw/mingw64/bin/mingw32-make.exe -f &quot;D:/Uni/2.Semester/Informatik II/MV/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="MV/fast">
+				<Option output="D:/Uni/2.Semester/Informatik II/MV/cmake-build-debug/MV.exe" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="D:/Uni/2.Semester/Informatik II/MV/cmake-build-debug"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="C:/mingw/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/8.1.0/include"/>
+					<Add directory="C:/mingw/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/8.1.0/include-fixed"/>
+					<Add directory="C:/mingw/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/8.1.0/../../../../x86_64-w64-mingw32/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="C:/mingw/mingw64/bin/mingw32-make.exe -f &quot;D:/Uni/2.Semester/Informatik II/MV/cmake-build-debug/Makefile&quot;  VERBOSE=1 MV/fast"/>
+					<CompileFile command="C:/mingw/mingw64/bin/mingw32-make.exe -f &quot;D:/Uni/2.Semester/Informatik II/MV/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="C:/mingw/mingw64/bin/mingw32-make.exe -f &quot;D:/Uni/2.Semester/Informatik II/MV/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="C:/mingw/mingw64/bin/mingw32-make.exe -f &quot;D:/Uni/2.Semester/Informatik II/MV/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="edit_cache">
+				<Option working_dir="D:/Uni/2.Semester/Informatik II/MV/cmake-build-debug"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="C:/mingw/mingw64/bin/mingw32-make.exe -f &quot;D:/Uni/2.Semester/Informatik II/MV/cmake-build-debug/Makefile&quot;  VERBOSE=1 edit_cache"/>
+					<CompileFile command="C:/mingw/mingw64/bin/mingw32-make.exe -f &quot;D:/Uni/2.Semester/Informatik II/MV/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="C:/mingw/mingw64/bin/mingw32-make.exe -f &quot;D:/Uni/2.Semester/Informatik II/MV/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="C:/mingw/mingw64/bin/mingw32-make.exe -f &quot;D:/Uni/2.Semester/Informatik II/MV/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="rebuild_cache">
+				<Option working_dir="D:/Uni/2.Semester/Informatik II/MV/cmake-build-debug"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="C:/mingw/mingw64/bin/mingw32-make.exe -f &quot;D:/Uni/2.Semester/Informatik II/MV/cmake-build-debug/Makefile&quot;  VERBOSE=1 rebuild_cache"/>
+					<CompileFile command="C:/mingw/mingw64/bin/mingw32-make.exe -f &quot;D:/Uni/2.Semester/Informatik II/MV/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="C:/mingw/mingw64/bin/mingw32-make.exe -f &quot;D:/Uni/2.Semester/Informatik II/MV/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="C:/mingw/mingw64/bin/mingw32-make.exe -f &quot;D:/Uni/2.Semester/Informatik II/MV/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+		</Build>
+		<Unit filename="D:/Uni/2.Semester/Informatik II/MV/Code/Menu/menu.c">
+			<Option target="MV"/>
+		</Unit>
+		<Unit filename="D:/Uni/2.Semester/Informatik II/MV/Code/Menu/menu.h">
+			<Option target="MV"/>
+		</Unit>
+		<Unit filename="D:/Uni/2.Semester/Informatik II/MV/Code/team.c">
+			<Option target="MV"/>
+		</Unit>
+		<Unit filename="D:/Uni/2.Semester/Informatik II/MV/Code/team.h">
+			<Option target="MV"/>
+		</Unit>
+		<Unit filename="D:/Uni/2.Semester/Informatik II/MV/Factory/DateTime/datetime.c">
+			<Option target="MV"/>
+		</Unit>
+		<Unit filename="D:/Uni/2.Semester/Informatik II/MV/Factory/DateTime/datetime.h">
+			<Option target="MV"/>
+		</Unit>
+		<Unit filename="D:/Uni/2.Semester/Informatik II/MV/Factory/Tools/tools.c">
+			<Option target="MV"/>
+		</Unit>
+		<Unit filename="D:/Uni/2.Semester/Informatik II/MV/Factory/Tools/tools.h">
+			<Option target="MV"/>
+		</Unit>
+		<Unit filename="D:/Uni/2.Semester/Informatik II/MV/main.c">
+			<Option target="MV"/>
+		</Unit>
+		<Unit filename="D:/Uni/2.Semester/Informatik II/MV/CMakeLists.txt">
+			<Option virtualFolder="CMake Files\"/>
+		</Unit>
+	</Project>
+</CodeBlocks_project_file>

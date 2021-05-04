@@ -4,14 +4,14 @@
 #include "../../Factory/Tools/tools.h"
 
 void getMenu(char * menutitle, char menu[][20]){
-	int i;
 	do
 	{
-	    clearScreen();
+        printf("bis hier kommen wir");
+	    //clearScreen();
 		printf("%s\n", menutitle);
 		printLine('=', 50);
 
-		for(i=0; i < 8; i++){
+		for(int i=0; i < 8; i++){
 			printf("%d. ",i+1);
 			puts(menu[i]);
 		}
@@ -25,7 +25,7 @@ int getMenuPoint(){
 	printf("Ihre Wahl: ");
 	scanf("%d", &answer);
     clearBuffer();
-	if(answer > 0 || answer < 9) {
+	if(answer > 0 && answer < 9) {
         if (answer == 1) {
             createTeam();
         } else if (answer == 2) {

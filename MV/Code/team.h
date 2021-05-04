@@ -11,6 +11,9 @@ void addPlayer();
 void deletePlayer();
 void searchPlayer();
 void sortTeams();
+
 void listTeams();
+void listOneTeam(sTeam team);
+void listOnePlayer(sPlayer player);
 
 #endif

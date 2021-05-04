@@ -2,77 +2,57 @@
 #include "datastructure.h"
 #include "team.h"
 #include <stdio.h>
-#include "string.h"
 #include "../Factory/DateTime/datetime.h"
 
 
 sTeam Teams[MAXTEAMS];
 int TeamCounter = 0;
 
-void getString(char * str){
-//das ist Neinkobs kommentarasdadasdasd
-}
-
 void createTeam(){
+    if(TeamCounter >= MAXTEAMS){
+        printf("Es koennen keine weiteren Teams erstellt werden.");
+    }
+    else{
+        getText("Bitte Team-Name eingeben: ",
+                20,0 , &Teams[TeamCounter].name);
 
-    //sTeam team;
-    printf("Bitte Name fuer Team eingeben: ");
-    gets(Teams[TeamCounter].name);
-    clearBuffer();
-    printf("Bitte Name fuer Trainer eingeben: ");
-    gets(Teams[TeamCounter].trainer);
-    clearBuffer();
-    Teams[TeamCounter].playerCnt = 0;
+        getText("Bitte Name fuer Trainer eingeben: ",
+                20,1,  &Teams[TeamCounter].trainer);
 
+        Teams[TeamCounter].playerCnt = 0;
 
-    do
-    {
-       addPlayer();
-    } while (askYesOrNo("Noch ein Spieler hinzuefugen?") && Teams[TeamCounter].playerCnt <=  23);
+        // spieler adden
+        do
+        {
+            addPlayer();
+        } while (askYesOrNo("Noch ein Spieler hinzuefugen (j/n) ?")
+                  && Teams[TeamCounter].playerCnt <=  23);
 
-    TeamCounter++;
-    listTeams();
-
-
-    //Teams[TeamCounter]=team;
-    //printf("%s %10d \n",team.name, team.playerCnt);
-
-
-    TeamCounter++;
-	waitForEnter();
+        TeamCounter++;
+    }
+    printf("%d", TeamCounter);
+	//waitForEnter();
 }
+
 void deleteTeam(){
 	printf("deleteTeam\n");
 	waitForEnter();
 }
+
 void addPlayer(){
-    printf("addPlayer \n");
-    printf("Bitte Name von Spieler eingeben: ");
-    gets(Teams[TeamCounter].team[ Teams[TeamCounter].playerCnt].name);
-    clearBuffer();
-    printf("Gerburtsdatum von Spieler eigeben: ");
+    // name
+    getText("Bitte Name des Spielers eingeben: ", 30, 0,
+            &Teams[TeamCounter].team[ Teams[TeamCounter].playerCnt].name);
 
+    // bday
+    Teams[TeamCounter].team[ Teams[TeamCounter ].playerCnt].birthday = getDate();
 
-    sDate Date;
-    char Input[20];
+    //trikot nr.
+    getNumber("Bitte Trikot-Nr. eingeben: ",
+              &Teams[TeamCounter].team[ Teams[TeamCounter].playerCnt].playerNumber,
+              1,100);
 
-    do
-    {
-        printf("Geben Sie bitte ein gueltiges Datum ein: ");
-        *Input = '\0';
-        scanf("%19[^\n]", Input);
-        clearBuffer();
-        if (getDateFromString(Input, &Date))
-            break;
-        else
-            printf("Das eingegebene Datum '%s' ist ungueltig!\n", Input);
-    } while (askYesOrNo("Moechten Sie noch einmal (j/n) ? "));
-
-
-    Teams[TeamCounter].team[ Teams[TeamCounter].playerCnt].birthday = &Date;
-    printf("Bitte geben Sie die Trikot Nr. ein: ");
-    scanf("%d", Teams[TeamCounter].team[ Teams[TeamCounter].playerCnt].playerNumber);
-    Teams[TeamCounter].team[ Teams[TeamCounter].playerCnt].goalsMade = 0;
+    Teams[TeamCounter].team[Teams[TeamCounter].playerCnt].goalsMade = 0;
     Teams[TeamCounter].playerCnt++;
 	waitForEnter();
 }
@@ -88,13 +68,34 @@ void sortTeams(){
 	printf("sortTeams\n");
 	waitForEnter();
 }
+
+
 void listTeams(){
-    int i;
+    printf("Liste der Mannschaften \n");
     printLine('_',50);
-    for(i = 0; i < 10; i++){
-        printf("%s %10x \n",Teams[i].name, &Teams[i].name);
-        //printf("%s %10x \n ", Teams[i].team[0].name, &Teams[i].team[0]);
+    for(int i = 0; i < TeamCounter; i++){
+        listOneTeam(Teams[i]);
+        printf("\n");
+    }
+
+
+    waitForEnter();
+}
+
+void listOneTeam(sTeam team){
+    char c = ' ';
+    printf("Name %*c: %s \n",20,c,team.name);
+    printf("Trainer %*c: %s \n",17,c,team.trainer);
+    printf("Anzahl Spieler %*c: %d \n", 11,c,team.playerCnt);
+    printf("Spieler:\n" );
+    for(int i = 0; i < team.playerCnt; i++){
+        printf("%*c %2d. ",4,c,i+1);
+        listOnePlayer(team.team[i]);
     }
 }
 
-
+void listOnePlayer(sPlayer player){
+    printf( "%s (%d;  *",player.name, player.playerNumber);
+    printDate(player.birthday);
+    printf(")\n");
+}

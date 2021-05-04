@@ -1,6 +1,8 @@
 #include "../../Code/datastructure.h"
+#include "../Tools/tools.h"
 #include "datetime.h"
 #include <stdlib.h>
+#include <stdio.h>
 
 /* durch 4 teilbar und kein jahrhundert oder durch 400 teilbar */  
 int isLeapYear(int y){
@@ -44,4 +46,24 @@ int getDateFromString(char * input,sDate *date){
 	
 	}
 	return 0;
+}
+sDate * getDate(){
+    sDate * date;
+    char Input[20];
+    do
+    {
+        printf("Bitte Datum eingeben: ");
+        *Input = '\0';
+        scanf("%19[^\n]", Input);
+        clearBuffer();
+        if (getDateFromString(Input, date))
+            break;
+        else
+            printf("Das eingegebene Datum '%s' ist ungueltig!\n", Input);
+    } while (askYesOrNo("Moechten Sie noch einmal (j/n) ? "));
+    return date;
+}
+
+void printDate(sDate * date){
+    printf("%2d.%2d.%4d", date->Day, date->Month, date->Year);
 }

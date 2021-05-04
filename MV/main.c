@@ -1,10 +1,22 @@
 #include "Code/Menu/menu.h"
 
+#include <stdio.h>
+#include <malloc.h>
+#include "Factory/Tools/tools.h"
+
 void showMenu();
+
 
 int main()
 {
     showMenu();
+
+    //char*x;
+    //printf("get Text return = %d \n",getText("input:", 10, 0, &x));
+    //printf("string in main: %s",x);
+
+    //waitForEnter();
+
     return 0;
 }
 

@@ -22,6 +22,7 @@ CMakeFiles/MV.dir/Factory/Tools/tools.c.obj: ../Factory/Tools/tools.c
 CMakeFiles/MV.dir/Factory/Tools/tools.c.obj: ../Factory/Tools/tools.h
 
 CMakeFiles/MV.dir/main.c.obj: ../Code/Menu/menu.h
-CMakeFiles/MV.dir/main.c.obj: ../Factory/Tools/tools.h
+CMakeFiles/MV.dir/main.c.obj: ../Code/datastructure.h
+CMakeFiles/MV.dir/main.c.obj: ../Code/team.h
 CMakeFiles/MV.dir/main.c.obj: ../main.c
 

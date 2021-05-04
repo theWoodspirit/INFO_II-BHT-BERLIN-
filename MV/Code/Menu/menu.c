@@ -3,46 +3,31 @@
 #include "../team.h"
 #include "../../Factory/Tools/tools.h"
 
-void getMenu(char * menutitle, char menu[][20]){
-	do
-	{
-        printf("bis hier kommen wir");
-	    //clearScreen();
-		printf("%s\n", menutitle);
-		printLine('=', 50);
+int getMenu(char * menutitle, char menu[][20]){
 
-		for(int i=0; i < 8; i++){
-			printf("%d. ",i+1);
-			puts(menu[i]);
-		}
+    clearScreen();
+    printf("%s\n", menutitle);
+    printLine('=', 50);
 
-		printf("\n");
-	} while (getMenuPoint());
+    for(int i=0; i < 8; i++){
+        printf("%d. ",i+1);
+        puts(menu[i]);
+    }
+
+    int answer;
+    printf("\n Ihre Wahl: ");
+    scanf("%d", &answer);
+    clearBuffer();
+
+    if(answer < 0 || answer > 9) {
+        printf("Ihre eingabe war falsch.\n");
+        printf("Bitte versuchen Sie es nochmal.\n");
+
+        waitForEnter();
+        return getMenu(menutitle, menu);
+    }
+
+    return answer;
 }
 
-int getMenuPoint(){
-    int answer;
-	printf("Ihre Wahl: ");
-	scanf("%d", &answer);
-    clearBuffer();
-	if(answer > 0 && answer < 9) {
-        if (answer == 1) {
-            createTeam();
-        } else if (answer == 2) {
-            addPlayer();
-        } else if (answer == 3) {
-            deletePlayer();
-        } else if (answer == 4) {
-            deleteTeam();
-        } else if (answer == 5) {
-            searchPlayer();
-        } else if (answer == 6) {
-            sortTeams();
-        } else if (answer == 7) {
-            listTeams();
-        } else if (answer == 8) {
-            return 0;
-        }
-    }
-	return 1;
-}	
+

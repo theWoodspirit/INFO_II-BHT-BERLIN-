@@ -54,7 +54,7 @@ void addPlayer(){
 
     Teams[TeamCounter].team[Teams[TeamCounter].playerCnt].goalsMade = 0;
     Teams[TeamCounter].playerCnt++;
-	waitForEnter();
+	//waitForEnter();
 }
 void deletePlayer(){
 	printf("deletePlayer\n");
@@ -86,7 +86,7 @@ void listOneTeam(sTeam team){
     char c = ' ';
     printf("Name %*c: %s \n",20,c,team.name);
     printf("Trainer %*c: %s \n",17,c,team.trainer);
-    printf("Anzahl Spieler %*c: %d \n", 11,c,team.playerCnt);
+    printf("Anzahl Spieler %*c: %d \n", 10,c,team.playerCnt);
     printf("Spieler:\n" );
     for(int i = 0; i < team.playerCnt; i++){
         printf("%*c %2d. ",4,c,i+1);

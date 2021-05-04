@@ -48,7 +48,7 @@ int getDateFromString(char * input,sDate *date){
 	return 0;
 }
 sDate * getDate(){
-    sDate * date;
+    sDate *date = malloc(sizeof(sDate));
     char Input[20];
     do
     {
@@ -57,10 +57,13 @@ sDate * getDate(){
         scanf("%19[^\n]", Input);
         clearBuffer();
         if (getDateFromString(Input, date))
-            break;
+            return date;
         else
             printf("Das eingegebene Datum '%s' ist ungueltig!\n", Input);
     } while (askYesOrNo("Moechten Sie noch einmal (j/n) ? "));
+    date->Day=1;
+    date->Month=1;
+    date->Year=1;
     return date;
 }
 

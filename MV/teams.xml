@@ -1,0 +1,141 @@
+<Daten>
+ <Team>
+  <Player>
+   <Name>Andreas Luthe</Name>
+   <Birthday>10.03.1987</Birthday>
+   <TricotNr>1</TricotNr>
+   <Goals>0</Goals>
+  </Player>
+  <Name>1. FC Union Berlin</Name>
+  <Player>
+   <Name>Marvin Friedrich</Name>
+   <Birthday>13.12.1995</Birthday>
+   <TricotNr>5</TricotNr>
+   <Goals>0</Goals>
+  </Player>
+  <Trainer>Urs Fischer</Trainer>
+  <Player>
+   <Name>Robin Knoche</Name>
+   <Birthday>22.05.1992</Birthday>
+   <TricotNr>31</TricotNr>
+   <Goals>0</Goals>
+  </Player>
+  <Player>
+   <Name>Christopher Trimmel</Name>
+   <Birthday>24.02.1987</Birthday>
+   <TricotNr>28</TricotNr>
+   <Goals>0</Goals>
+  </Player>
+  <Player>
+   <Name>Nico Schlotterbeck</Name>
+   <Birthday>01.12.1999</Birthday>
+   <TricotNr>4</TricotNr>
+   <Goals>0</Goals>
+  </Player>
+  <Player>
+   <Name>Robert Andrich</Name>
+   <Birthday>22.09.1994</Birthday>
+   <TricotNr>30</TricotNr>
+   <Goals>0</Goals>
+  </Player>
+  <Player>
+   <Name>Sebastian Griesbeck</Name>
+   <Birthday>03.10.1990</Birthday>
+   <TricotNr>33</TricotNr>
+   <Goals>0</Goals>
+  </Player>
+  <Player>
+   <Name>Christian Genther</Name>
+   <Birthday>14.08.1985</Birthday>
+   <TricotNr>34</TricotNr>
+  </Player>
+  <Player>
+   <Name>Taiwo Awoniyi</Name>
+   <Birthday>12.08.1997</Birthday>
+   <TricotNr>14</TricotNr>
+   <Goals>0</Goals>
+  </Player>
+  <Player>
+   <Name>Max Kruse</Name>
+   <TricotNr>10</TricotNr>
+   <Birthday>19.03.1988</Birthday>
+   <Goals>0</Goals>
+  </Player>
+  <Player>
+   <Birthday>13.09.1994</Birthday>
+   <TricotNr>9</TricotNr>
+   <Goals>0</Goals>
+   <Name>Joel Pohjanpalo</Name>
+  </Player>
+ </Team>
+ <Team>
+  <Player>
+   <Name>Alexander Schwolow</Name>
+   <Birthday>02.06.1992</Birthday>
+   <TricotNr>1</TricotNr>
+   <Goals>0</Goals>
+  </Player>
+  <Player>
+   <Name>Niklas Stark</Name>
+   <Birthday>14.04.1995</Birthday>
+   <TricotNr>5</TricotNr>
+   <Goals>0</Goals>
+  </Player>
+  <Player>
+   <Name>Maximailian Mittelstaedt</Name>
+   <Birthday>18.03.1997</Birthday>
+   <TricotNr>17</TricotNr>
+   <Goals>0</Goals>
+  </Player>
+  <Player>
+   <Name>Peter Pekarik</Name>
+   <Birthday>30.10.1986</Birthday>
+   <TricotNr>2</TricotNr>
+   <Goals>0</Goals>
+  </Player>
+  <Player>
+   <Name>Marvin Plattenhardt</Name>
+   <Birthday>26.01.1992</Birthday>
+   <TricotNr>21</TricotNr>
+   <Goals>0</Goals>
+  </Player>
+  <Player>
+   <Name>Lukas Kluenter</Name>
+   <Birthday>26.05.1996</Birthday>
+   <TricotNr>13</TricotNr>
+   <Goals>0</Goals>
+  </Player>
+  <Player>
+   <Name>Dodi Lukebakio</Name>
+   <Birthday>24.09.1997</Birthday>
+   <TricotNr>11</TricotNr>
+   <Goals>0</Goals>
+  </Player>
+  <Player>
+   <Name>Vlademir Darida</Name>
+   <Birthday>08.08.1990</Birthday>
+   <TricotNr>6</TricotNr>
+   <Goals>0</Goals>
+  </Player>
+  <Player>
+   <Name>Krzysztof Piatek</Name>
+   <Birthday>01.07.1995</Birthday>
+   <TricotNr>9</TricotNr>
+   <Goals>0</Goals>
+  </Player>
+  <Player>
+   <Name>Matheus Cunha</Name>
+   <Birthday>27.05.1999</Birthday>
+   <TricotNr>10</TricotNr>
+   <Goals>0</Goals>
+  </Player>
+  <Player>
+   <Name>Jhon Cordoba</Name>
+   <Birthday>11.05.1993</Birthday>
+   <TricotNr>15</TricotNr>
+   <Goals>0</Goals>
+  </Player>
+  <Trainer>Pal Dardai</Trainer>
+  <Name>Hertha BSC</Name>
+ </Team>
+</Daten>

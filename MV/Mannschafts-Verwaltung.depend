@@ -1,0 +1,150 @@
+# depslib dependency file v1.0
+1620985005 source:c:\users\jakob\onedrive - beuthhs\dokumente\beuth hochschule\2. semetser\informatik 2\Übungsaufgaben\Übung 4\mannschafts-verwaltung\datetime.c
+	<stdio.h>
+	<stdlib.h>
+	"datastructure.h"
+	"tools.h"
+
+1620949366 c:\users\jakob\onedrive - beuthhs\dokumente\beuth hochschule\2. semetser\informatik 2\Übungsaufgaben\Übung 4\mannschafts-verwaltung\datastructure.h
+
+1620644508 c:\users\jakob\onedrive - beuthhs\dokumente\beuth hochschule\2. semetser\informatik 2\Übungsaufgaben\Übung 4\mannschafts-verwaltung\tools.h
+
+1622213645 source:c:\users\jakob\onedrive - beuthhs\dokumente\beuth hochschule\2. semetser\informatik 2\Übungsaufgaben\Übung 4\mannschafts-verwaltung\main.c
+	<stdio.h>
+	<stdlib.h>
+	"datastructure.h"
+	"datetime.h"
+	"tools.h"
+	"teams.h"
+	"menu.h"
+
+1620561336 c:\users\jakob\onedrive - beuthhs\dokumente\beuth hochschule\2. semetser\informatik 2\Übungsaufgaben\Übung 4\mannschafts-verwaltung\datetime.h
+
+1622213723 c:\users\jakob\onedrive - beuthhs\dokumente\beuth hochschule\2. semetser\informatik 2\Übungsaufgaben\Übung 4\mannschafts-verwaltung\teams.h
+	"datastructure.h"
+
+1620151959 c:\users\jakob\onedrive - beuthhs\dokumente\beuth hochschule\2. semetser\informatik 2\Übungsaufgaben\Übung 4\mannschafts-verwaltung\menu.h
+
+1622214020 source:c:\users\jakob\onedrive - beuthhs\dokumente\beuth hochschule\2. semetser\informatik 2\Übungsaufgaben\Übung 4\mannschafts-verwaltung\teams.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"datastructure.h"
+	"tools.h"
+	"datetime.h"
+
+1621769351 source:c:\users\jakob\onedrive - beuthhs\dokumente\beuth hochschule\2. semetser\informatik 2\Übungsaufgaben\Übung 4\mannschafts-verwaltung\tools.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"teams.h"
+
+1622243154 source:c:\users\jakob\onedrive - beuthhs\dokumente\beuth hochschule\2. semetser\informatik 2\Übungsaufgaben\Übung 4\mannschafts-verwaltung\menu.c
+	<stdio.h>
+	<stdlib.h>
+	"tools.h"
+
+1622318439 source:c:\users\keitc\onedrive\dokumente\github\mannschaftsverwaltung01\datetime.c
+	<stdio.h>
+	<stdlib.h>
+	"datastructure.h"
+	"tools.h"
+
+1622318439 c:\users\keitc\onedrive\dokumente\github\mannschaftsverwaltung01\datastructure.h
+
+1622318439 c:\users\keitc\onedrive\dokumente\github\mannschaftsverwaltung01\tools.h
+
+1622318439 source:c:\users\keitc\onedrive\dokumente\github\mannschaftsverwaltung01\main.c
+	<stdio.h>
+	<stdlib.h>
+	"datastructure.h"
+	"datetime.h"
+	"tools.h"
+	"teams.h"
+	"menu.h"
+	"database.h"
+
+1622318439 c:\users\keitc\onedrive\dokumente\github\mannschaftsverwaltung01\datetime.h
+
+1622318439 c:\users\keitc\onedrive\dokumente\github\mannschaftsverwaltung01\teams.h
+	"datastructure.h"
+
+1622318439 c:\users\keitc\onedrive\dokumente\github\mannschaftsverwaltung01\menu.h
+
+1622318439 c:\users\keitc\onedrive\dokumente\github\mannschaftsverwaltung01\database.h
+
+1622318439 source:c:\users\keitc\onedrive\dokumente\github\mannschaftsverwaltung01\menu.c
+	<stdio.h>
+	<stdlib.h>
+	"tools.h"
+
+1622318439 source:c:\users\keitc\onedrive\dokumente\github\mannschaftsverwaltung01\teams.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"datastructure.h"
+	"tools.h"
+	"datetime.h"
+
+1622318439 source:c:\users\keitc\onedrive\dokumente\github\mannschaftsverwaltung01\tools.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"teams.h"
+
+1622584674 source:c:\users\jakob\onedrive - beuthhs\dokumente\beuth hochschule\2. semetser\informatik 2\Übungsaufgaben\github\mannschaftsverwaltung\datetime.c
+	<stdio.h>
+	<stdlib.h>
+	"datastructure.h"
+	"tools.h"
+
+1620949366 c:\users\jakob\onedrive - beuthhs\dokumente\beuth hochschule\2. semetser\informatik 2\Übungsaufgaben\github\mannschaftsverwaltung\datastructure.h
+
+1620644508 c:\users\jakob\onedrive - beuthhs\dokumente\beuth hochschule\2. semetser\informatik 2\Übungsaufgaben\github\mannschaftsverwaltung\tools.h
+
+1622655563 source:c:\users\jakob\onedrive - beuthhs\dokumente\beuth hochschule\2. semetser\informatik 2\Übungsaufgaben\github\mannschaftsverwaltung\menu.c
+	<stdio.h>
+	<stdlib.h>
+	"tools.h"
+
+1621769351 source:c:\users\jakob\onedrive - beuthhs\dokumente\beuth hochschule\2. semetser\informatik 2\Übungsaufgaben\github\mannschaftsverwaltung\tools.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"teams.h"
+
+1622213723 c:\users\jakob\onedrive - beuthhs\dokumente\beuth hochschule\2. semetser\informatik 2\Übungsaufgaben\github\mannschaftsverwaltung\teams.h
+	"datastructure.h"
+
+1622655401 source:c:\users\jakob\onedrive - beuthhs\dokumente\beuth hochschule\2. semetser\informatik 2\Übungsaufgaben\github\mannschaftsverwaltung\database.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"datastructure.h"
+	"teams.h"
+	"datetime.h"
+
+1622655516 source:c:\users\jakob\onedrive - beuthhs\dokumente\beuth hochschule\2. semetser\informatik 2\Übungsaufgaben\github\mannschaftsverwaltung\main.c
+	<stdio.h>
+	<stdlib.h>
+	"datastructure.h"
+	"datetime.h"
+	"tools.h"
+	"teams.h"
+	"menu.h"
+	"database.h"
+
+1620561336 c:\users\jakob\onedrive - beuthhs\dokumente\beuth hochschule\2. semetser\informatik 2\Übungsaufgaben\github\mannschaftsverwaltung\datetime.h
+
+1620151959 c:\users\jakob\onedrive - beuthhs\dokumente\beuth hochschule\2. semetser\informatik 2\Übungsaufgaben\github\mannschaftsverwaltung\menu.h
+
+1622572932 c:\users\jakob\onedrive - beuthhs\dokumente\beuth hochschule\2. semetser\informatik 2\Übungsaufgaben\github\mannschaftsverwaltung\database.h
+
+1622655643 source:c:\users\jakob\onedrive - beuthhs\dokumente\beuth hochschule\2. semetser\informatik 2\Übungsaufgaben\github\mannschaftsverwaltung\teams.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"datastructure.h"
+	"tools.h"
+	"datetime.h"
+

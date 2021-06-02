@@ -1,38 +1,53 @@
-#include "Code/Menu/menu.h"
-#include "Code/team.h"
+#include <stdio.h>
+#include <stdlib.h>
+#include "datastructure.h"
+#include "datetime.h"
+#include "tools.h"
+#include "teams.h"
+#include "menu.h"
+#include "database.h"
 
+int main()
+{
+   char *title = "Mannschaften-Verwaltung V0.0";
+   short ChosenMenu;
+   char menu[8][24] = {
+   "Neue Mannschaft anlegen",
+   "Spieler hinzufuegen",
+   "Spieler loeschen",
+   "Mannschaft loeschen",
+   "Suchen",
+   "Sortieren",
+   "Auflisten",
+   "Programm beenden"};
 
+   load();
+   do
+   {
+      ChosenMenu = getMenu(title, menu);
+      switch(ChosenMenu)
+      {
+         case 1: createTeam();
+                 break;
+         case 2: addPlayer();
+                 break;
+         case 3: deletePlayer();
+                 break;
+         case 4: deleteTeam();
+                 break;
+         case 5: searchPlayer();
+                 break;
+         case 6: sortTeams();
+                 break;
+         case 7: listTeams();
+                 break;
+      }
+   } while(ChosenMenu != 8);
 
-int main(){
-    char * menuTitle = "Mannschaften-Verwaltung V2.0";
-    char menu[8][20] = {"Mannschaft anlegen",
-                        "Spieler hinzufuegen",
-                        "Spieler loeschen",
-                        "Mannschaft loeschen",
-                        "Suchen",
-                        "Sortieren",
-                        "Auflisten",
-                        "Programm beenden"};
-    while (1){
-        int answer = getMenu(menuTitle, menu);
-        if (answer == 1) {
-            createTeam();
-        } else if (answer == 2) {
-            addPlayer();
-        } else if (answer == 3) {
-            deletePlayer();
-        } else if (answer == 4) {
-            deleteTeam();
-        } else if (answer == 5) {
-            searchPlayer();
-        } else if (answer == 6) {
-            sortTeams();
-        } else if (answer == 7) {
-            listTeams();
-        } else if (answer == 8) {
-            return 0;
-        }
-    }
+   if(askYesOrNo("Speichern? (j/n) "))
+      save();
+
+   freeMemOfAllTeams();
+
+   return 0;
 }
-
-

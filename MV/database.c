@@ -37,7 +37,7 @@ void saveTeam(sTeam team, FILE *datei)
 
 void save()
 {
-   FILE *datei = fopen("teams2.xml", "w");
+   FILE *datei = fopen("teams.xml", "w");
 
    if(!datei)
    {
@@ -59,8 +59,7 @@ void loadPlayer(FILE *datei, sPlayer *Player)
    char Zeile[101];
    char Buffer, *Zeilenanfang;
    size_t len;
-   char *InputDate = calloc(11, sizeof(char));
-   sDate *date = malloc(sizeof(sDate));
+   char *InputDate;
 
    Player->DateOfBirth = NULL;
    Player->goals = 0;
@@ -77,6 +76,10 @@ void loadPlayer(FILE *datei, sPlayer *Player)
 
       if(strncmp(Zeilenanfang, "<Name>", 6) == 0)
       {
+         // Bei mehrfacher vorhanden seins des Tags
+         if(Player->PlayerName)
+            freeMem(&Player->PlayerName);
+
          len = strlen(Zeilenanfang + 6) - 7; // Abziehen des Ende-Tags
 
          if(strncmp(Zeilenanfang + 6 + len, "</Name>", 7) == 0)
@@ -88,10 +91,18 @@ void loadPlayer(FILE *datei, sPlayer *Player)
       }
       else if(strncmp(Zeilenanfang, "<Birthday>", 10) == 0)
       {
+         if(Player->DateOfBirth)
+         {
+            free(Player->DateOfBirth);
+            Player->DateOfBirth = NULL;
+            freeMem(&InputDate);
+         }
          len = strlen(Zeilenanfang + 10) - 11;
 
          if(strncmp(Zeilenanfang + 10 + len, "</Birthday>", 11) == 0)
          {
+            sDate *date = malloc(sizeof(sDate));
+            InputDate = calloc(11, sizeof(char));
             strncpy(InputDate, Zeilenanfang + 10, 10);
             // Textendezeichen hinzufügen, wegen Abfrage in getDateFromString
             *(InputDate + 11) = '\0';
@@ -139,6 +150,9 @@ void loadTeam(FILE *datei, sTeam *team)
 
       if(strncmp(Zeilenanfang, "<Name>", 6) == 0)
       {
+         if(team->TeamName)
+            freeMem(&team->TeamName);
+
          len = strlen(Zeilenanfang + 6) - 7; // Abziehen des Ende-Tags
 
          if(strncmp(Zeilenanfang + 6 + len, "</Name>", 7) == 0)
@@ -150,6 +164,9 @@ void loadTeam(FILE *datei, sTeam *team)
       }
       else if(strncmp(Zeilenanfang, "<Trainer>", 9) == 0)
       {
+         if(team->CoachName)
+            freeMem(&team->CoachName);
+
          len = strlen(Zeilenanfang + 9) - 10;
 
          if(strncmp(Zeilenanfang + 9 + len, "</Trainer>", 10) == 0)
@@ -173,7 +190,7 @@ void load()
 {
    char Zeile[101];
    char Buffer, *Zeilenanfang;
-   FILE *datei = fopen("teams2.xml", "rt");
+   FILE *datei = fopen("teams.xml", "rt");
 
    if(datei)
    {
@@ -186,9 +203,6 @@ void load()
          while((*Zeilenanfang == ' ') || (*Zeilenanfang == 9))
             Zeilenanfang++;
 
-         /*if((strncmp(Zeilenanfang, "<Daten>", 7) == 0))
-            printf("Anfang Daten\n");*/
-
          if(strncmp(Zeilenanfang, "<Team>", 6) == 0)
          {
             loadTeam(datei, &Teams[TeamCounter]);
@@ -199,4 +213,5 @@ void load()
             break;
       } while(strncmp(Zeilenanfang, "</Daten>", 8) != 0);
    }
+   fclose(datei);
 }

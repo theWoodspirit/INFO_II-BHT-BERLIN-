@@ -4,6 +4,8 @@
 #include "datastructure.h"
 #include "tools.h"
 #include "datetime.h"
+#include "menu.h"
+#include "sort.h"
 
 int TeamCounter = 0;
 sTeam Teams[MAXTEAMS];
@@ -80,9 +82,6 @@ void searchPlayer()
 void sortTeams()
 {
    clearScreen();
-   /* printf("Sortieren\n");
-    printLine('=', 9);
-    printf("\n\n"); */
 
    char *title = "Sortieren";
    short Wahl;
@@ -92,7 +91,7 @@ void sortTeams()
                       "Spieler nach Anzahl geschossener Tore sortieren",
                       "zurueck zum Hauptmenue"};
 
-   while(Wahl != 5 )
+   while(Wahl != 5)
    {
       Wahl = SgetMenu(title, menu);
       switch(Wahl)
@@ -106,7 +105,7 @@ void sortTeams()
          case 4:sortTore();
                  break;
       }
-   };
+   }
 }
 
 void listOnePlayer(sPlayer player, int i)
@@ -128,7 +127,7 @@ void listOneTeam(sTeam team)
 
    printf("Anzahl Spieler : %d\n", team.NumOfPlayers);
    printf("Spieler:\n");
-   for(int i = 0; i < team.NumOfPlayers && i < MAXPLAYER; i++)
+   for(int i = 0; i < team.NumOfPlayers; i++)
       listOnePlayer(team.player[i], i);
 }
 
@@ -168,7 +167,7 @@ void freeMemOfOneTeam(sTeam team)
    freeMem(&team.TeamName);
    freeMem(&team.CoachName);
 
-   for(i = 0; i < team.NumOfPlayers && i < MAXPLAYER; i++)
+   for(i = 0; i < team.NumOfPlayers; i++)
       freeMemOfOnePlayer(team.player[i]);
 }
 

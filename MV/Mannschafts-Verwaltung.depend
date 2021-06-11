@@ -159,19 +159,45 @@
 
 1622572932 c:\users\jakob\onedrive - beuthhs\dokumente\beuth hochschule\2. semetser\informatik 2\Übungsaufgaben\Übung 4\mannschafts-verwaltung\database.h
 
-<<<<<<< HEAD
+1622806154 D
+
 1623342332 source:c:\users\keitc\onedrive\dokumente\github\info_ii\mv\database.c
-=======
+
 1623398608 source:c:\users\jakob\onedrive - beuthhs\dokumente\beuth hochschule\2. semetser\informatik 2\Übungsaufgaben\Übung 5\mannschafts-verwaltung\database.c
->>>>>>> 7f99dfff5fe6e2dfbb722527861537af9f62b099
+
+1622572932 9dfff5fe6e2dfbb722527861537af9f62b099
 	<stdio.h>
 	<stdlib.h>
 	<string.h>
 	"datastructure.h"
 	"teams.h"
 	"datetime.h"
+	<stdio.h>
+	<stdlib.h>
+	"datastructure.h"
+	"tools.h"
+	<stdio.h>
+	<stdlib.h>
+	"datastructure.h"
+	"datetime.h"
+	"tools.h"
+	"teams.h"
+	"menu.h"
+	"database.h"
+	<stdio.h>
+	<stdlib.h>
+	"tools.h"
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"datastructure.h"
+	"tools.h"
+	"datetime.h"
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"teams.h"
 
-<<<<<<< HEAD
 1623342332 c:\users\keitc\onedrive\dokumente\github\info_ii\mv\datastructure.h
 
 1623342332 c:\users\keitc\onedrive\dokumente\github\info_ii\mv\teams.h
@@ -180,7 +206,7 @@
 1623342332 c:\users\keitc\onedrive\dokumente\github\info_ii\mv\datetime.h
 
 1623342332 source:c:\users\keitc\onedrive\dokumente\github\info_ii\mv\datetime.c
-=======
+
 1623097517 c:\users\jakob\onedrive - beuthhs\dokumente\beuth hochschule\2. semetser\informatik 2\Übungsaufgaben\Übung 5\mannschafts-verwaltung\datastructure.h
 
 1622213723 c:\users\jakob\onedrive - beuthhs\dokumente\beuth hochschule\2. semetser\informatik 2\Übungsaufgaben\Übung 5\mannschafts-verwaltung\teams.h
@@ -189,21 +215,66 @@
 1620561336 c:\users\jakob\onedrive - beuthhs\dokumente\beuth hochschule\2. semetser\informatik 2\Übungsaufgaben\Übung 5\mannschafts-verwaltung\datetime.h
 
 1622584674 source:c:\users\jakob\onedrive - beuthhs\dokumente\beuth hochschule\2. semetser\informatik 2\Übungsaufgaben\Übung 5\mannschafts-verwaltung\datetime.c
->>>>>>> 7f99dfff5fe6e2dfbb722527861537af9f62b099
+
+1623342332 c:\users\keitc\onedrive\dokumente\github\info_ii\mv\tools.h
+
+1623342332 source:c:\users\keitc\onedrive\dokumente\github\info_ii\mv\main.c
+
+1620644508 c:\users\jakob\onedrive - beuthhs\dokumente\beuth hochschule\2. semetser\informatik 2\Übungsaufgaben\Übung 5\mannschafts-verwaltung\tools.h
+
+1622655516 source:c:\users\jakob\onedrive - beuthhs\dokumente\beuth hochschule\2. semetser\informatik 2\Übungsaufgaben\Übung 5\mannschafts-verwaltung\main.c
+
+1623398328 c:\users\keitc\onedrive\dokumente\github\info_ii\mv\menu.h
+
+1623342332 c:\users\keitc\onedrive\dokumente\github\info_ii\mv\database.h
+
+1623398366 source:c:\users\keitc\onedrive\dokumente\github\info_ii\mv\menu.c
+
+1622655563 source:c:\users\jakob\onedrive - beuthhs\dokumente\beuth hochschule\2. semetser\informatik 2\Übungsaufgaben\Übung 5\mannschafts-verwaltung\menu.c
+
+1623398328 source:c:\users\keitc\onedrive\dokumente\github\info_ii\mv\teams.c
+
+1623398223 source:c:\users\jakob\onedrive - beuthhs\dokumente\beuth hochschule\2. semetser\informatik 2\Übungsaufgaben\Übung 5\mannschafts-verwaltung\teams.c
+
+1623342332 source:c:\users\keitc\onedrive\dokumente\github\info_ii\mv\tools.c
+
+1622806154 source:c:\users\jakob\onedrive - beuthhs\dokumente\beuth hochschule\2. semetser\informatik 2\Übungsaufgaben\Übung 5\mannschafts-verwaltung\tools.c
+
+1623398328 source:c:\users\keitc\onedrive\dokumente\github\info_ii\mv\sort.c
+	<stdio.h>
+	<stdlib.h>
+	"sort.h"
+
+1623398328 c:\users\keitc\onedrive\dokumente\github\info_ii\mv\sort.h
+
+1620151959 c:\users\jakob\onedrive - beuthhs\dokumente\beuth hochschule\2. semetser\informatik 2\Übungsaufgaben\Übung 5\mannschafts-verwaltung\menu.h
+
+1622572932 c:\users\jakob\onedrive - beuthhs\dokumente\beuth hochschule\2. semetser\informatik 2\Übungsaufgaben\Übung 5\mannschafts-verwaltung\database.h
+
+1623400852 source:c:\users\jakob\onedrive - beuthhs\dokumente\github\info_ii\mv\database.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"datastructure.h"
+	"teams.h"
+	"datetime.h"
+
+1623097517 c:\users\jakob\onedrive - beuthhs\dokumente\github\info_ii\mv\datastructure.h
+
+1622213723 c:\users\jakob\onedrive - beuthhs\dokumente\github\info_ii\mv\teams.h
+	"datastructure.h"
+
+1620561336 c:\users\jakob\onedrive - beuthhs\dokumente\github\info_ii\mv\datetime.h
+
+1622584674 source:c:\users\jakob\onedrive - beuthhs\dokumente\github\info_ii\mv\datetime.c
 	<stdio.h>
 	<stdlib.h>
 	"datastructure.h"
 	"tools.h"
 
-<<<<<<< HEAD
-1623342332 c:\users\keitc\onedrive\dokumente\github\info_ii\mv\tools.h
+1620644508 c:\users\jakob\onedrive - beuthhs\dokumente\github\info_ii\mv\tools.h
 
-1623342332 source:c:\users\keitc\onedrive\dokumente\github\info_ii\mv\main.c
-=======
-1620644508 c:\users\jakob\onedrive - beuthhs\dokumente\beuth hochschule\2. semetser\informatik 2\Übungsaufgaben\Übung 5\mannschafts-verwaltung\tools.h
-
-1622655516 source:c:\users\jakob\onedrive - beuthhs\dokumente\beuth hochschule\2. semetser\informatik 2\Übungsaufgaben\Übung 5\mannschafts-verwaltung\main.c
->>>>>>> 7f99dfff5fe6e2dfbb722527861537af9f62b099
+1622655516 source:c:\users\jakob\onedrive - beuthhs\dokumente\github\info_ii\mv\main.c
 	<stdio.h>
 	<stdlib.h>
 	"datastructure.h"
@@ -213,51 +284,35 @@
 	"menu.h"
 	"database.h"
 
-<<<<<<< HEAD
-1623398328 c:\users\keitc\onedrive\dokumente\github\info_ii\mv\menu.h
+1623400077 c:\users\jakob\onedrive - beuthhs\dokumente\github\info_ii\mv\menu.h
 
-1623342332 c:\users\keitc\onedrive\dokumente\github\info_ii\mv\database.h
+1622572932 c:\users\jakob\onedrive - beuthhs\dokumente\github\info_ii\mv\database.h
 
-1623398366 source:c:\users\keitc\onedrive\dokumente\github\info_ii\mv\menu.c
-=======
-1622655563 source:c:\users\jakob\onedrive - beuthhs\dokumente\beuth hochschule\2. semetser\informatik 2\Übungsaufgaben\Übung 5\mannschafts-verwaltung\menu.c
->>>>>>> 7f99dfff5fe6e2dfbb722527861537af9f62b099
+1623400077 source:c:\users\jakob\onedrive - beuthhs\dokumente\github\info_ii\mv\menu.c
 	<stdio.h>
 	<stdlib.h>
 	"tools.h"
 
-<<<<<<< HEAD
-1623398328 source:c:\users\keitc\onedrive\dokumente\github\info_ii\mv\teams.c
-=======
-1623398223 source:c:\users\jakob\onedrive - beuthhs\dokumente\beuth hochschule\2. semetser\informatik 2\Übungsaufgaben\Übung 5\mannschafts-verwaltung\teams.c
->>>>>>> 7f99dfff5fe6e2dfbb722527861537af9f62b099
+1623400077 source:c:\users\jakob\onedrive - beuthhs\dokumente\github\info_ii\mv\sort.c
+	<stdio.h>
+	<stdlib.h>
+	"sort.h"
+
+1623400077 c:\users\jakob\onedrive - beuthhs\dokumente\github\info_ii\mv\sort.h
+
+1622806154 source:c:\users\jakob\onedrive - beuthhs\dokumente\github\info_ii\mv\tools.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"teams.h"
+
+1623400825 source:c:\users\jakob\onedrive - beuthhs\dokumente\github\info_ii\mv\teams.c
 	<stdio.h>
 	<stdlib.h>
 	<string.h>
 	"datastructure.h"
 	"tools.h"
 	"datetime.h"
-
-<<<<<<< HEAD
-1623342332 source:c:\users\keitc\onedrive\dokumente\github\info_ii\mv\tools.c
-=======
-1622806154 source:c:\users\jakob\onedrive - beuthhs\dokumente\beuth hochschule\2. semetser\informatik 2\Übungsaufgaben\Übung 5\mannschafts-verwaltung\tools.c
->>>>>>> 7f99dfff5fe6e2dfbb722527861537af9f62b099
-	<stdio.h>
-	<stdlib.h>
-	<string.h>
-	"teams.h"
-
-<<<<<<< HEAD
-1623398328 source:c:\users\keitc\onedrive\dokumente\github\info_ii\mv\sort.c
-	<stdio.h>
-	<stdlib.h>
+	"menu.h"
 	"sort.h"
-
-1623398328 c:\users\keitc\onedrive\dokumente\github\info_ii\mv\sort.h
-=======
-1620151959 c:\users\jakob\onedrive - beuthhs\dokumente\beuth hochschule\2. semetser\informatik 2\Übungsaufgaben\Übung 5\mannschafts-verwaltung\menu.h
-
-1622572932 c:\users\jakob\onedrive - beuthhs\dokumente\beuth hochschule\2. semetser\informatik 2\Übungsaufgaben\Übung 5\mannschafts-verwaltung\database.h
->>>>>>> 7f99dfff5fe6e2dfbb722527861537af9f62b099
 

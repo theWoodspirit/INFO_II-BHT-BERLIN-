@@ -79,8 +79,34 @@ void searchPlayer()
 
 void sortTeams()
 {
-   printf("sortTeams\n");
-   waitForEnter();
+   clearScreen();
+   /* printf("Sortieren\n");
+    printLine('=', 9);
+    printf("\n\n"); */
+
+   char *title = "Sortieren";
+   short Wahl;
+   char menu[5][48] = {"Spieler nach Namen sortieren",
+                      "Spieler nach Geburtsdatum (Alter) sortieren",
+                      "Spieler nach Trikotnr. Sortieren",
+                      "Spieler nach Anzahl geschossener Tore sortieren",
+                      "zurueck zum Hauptmenue"};
+
+   while(Wahl != 5 )
+   {
+      Wahl = SgetMenu(title, menu);
+      switch(Wahl)
+      {
+         case 1:sortName();
+                 break;
+         case 2:sortAlter();
+                 break;
+         case 3:sortTriknr();
+                 break;
+         case 4:sortTore();
+                 break;
+      }
+   };
 }
 
 void listOnePlayer(sPlayer player, int i)

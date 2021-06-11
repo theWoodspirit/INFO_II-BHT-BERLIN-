@@ -2,5 +2,6 @@
 #define MENU_H_INCLUDED
 
 short getMenu(char *title, char menu[][24]);
+short SgetMenu(char *title, char menu[][48]);
 
 #endif // MENU_H_INCLUDED

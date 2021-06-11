@@ -22,3 +22,24 @@ short getMenu(char *title, char menu[][24])
 
    return k;
 }
+/******************************************************************************/
+short SgetMenu(char *title, char menu[][48])
+{
+   short i;
+   int k;
+   do
+   {
+      k = 0;
+      clearScreen();
+      printf("%s\n", title);
+      printLine('=', 9);
+      printf("\n\n");
+      for(i = 0; i < 5; i++)
+         printf("%i. %s\n", i + 1, menu[i]);
+      printf("\nIhre Wahl: ");
+      scanf("%d", &k);
+      clearBuffer();
+   } while((k > 5) || (k < 1));
+
+   return k;
+}

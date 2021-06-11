@@ -47,6 +47,10 @@
 			<Option compilerVar="CC" />
 		</Unit>
 		<Unit filename="menu.h" />
+		<Unit filename="sort.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="sort.h" />
 		<Unit filename="teams.c">
 			<Option compilerVar="CC" />
 		</Unit>

@@ -29,7 +29,7 @@ void saveTeam(sTeam team, FILE *datei)
    if(team.CoachName)
       fprintf(datei, "\t\t<Trainer>%s</Trainer>\n", team.CoachName);
 
-   for(i = 0; i < team.NumOfPlayers; i++)
+   for(i = 0; i < team.NumOfPlayers && i < MAXPLAYER; i++)
       savePlayer(team.player[i], datei);
 
    fprintf(datei, "\t</Team>\n");

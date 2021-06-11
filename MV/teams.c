@@ -128,7 +128,7 @@ void listOneTeam(sTeam team)
 
    printf("Anzahl Spieler : %d\n", team.NumOfPlayers);
    printf("Spieler:\n");
-   for(int i = 0; i < team.NumOfPlayers; i++)
+   for(int i = 0; i < team.NumOfPlayers && i < MAXPLAYER; i++)
       listOnePlayer(team.player[i], i);
 }
 
@@ -168,7 +168,7 @@ void freeMemOfOneTeam(sTeam team)
    freeMem(&team.TeamName);
    freeMem(&team.CoachName);
 
-   for(i = 0; i < team.NumOfPlayers; i++)
+   for(i = 0; i < team.NumOfPlayers && i < MAXPLAYER; i++)
       freeMemOfOnePlayer(team.player[i]);
 }
 

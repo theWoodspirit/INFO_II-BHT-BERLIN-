@@ -29,7 +29,7 @@ void saveTeam(sTeam team, FILE *datei)
    if(team.CoachName)
       fprintf(datei, "\t\t<Trainer>%s</Trainer>\n", team.CoachName);
 
-   for(i = 0; i < team.NumOfPlayers && i < MAXPLAYER; i++)
+   for(i = 0; i < team.NumOfPlayers; i++)
       savePlayer(team.player[i], datei);
 
    fprintf(datei, "\t</Team>\n");
@@ -178,8 +178,11 @@ void loadTeam(FILE *datei, sTeam *team)
       }
       else if(strncmp(Zeilenanfang, "<Player>", 8) == 0)
       {
-         loadPlayer(datei, team->player + team->NumOfPlayers);
-         team->NumOfPlayers++;
+         if(team->NumOfPlayers < MAXPLAYER)
+         {
+            loadPlayer(datei, team->player + team->NumOfPlayers);
+            team->NumOfPlayers++;
+         }
       }
       else if(feof(datei))
             break;

@@ -1,6 +1,8 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include "tools.h"
+#include "teams.h"
+#include "datastructure.h"
 
 void tausche(int *e1, int *e2)
 {
@@ -23,7 +25,7 @@ void tausche(int *e1, int *e2)
  *            oi - der obere Index (entsprechend ui)      *
  * Rückgabe:  int - Index der Schranke                    *
  **********************************************************/
-int partition(int *Array, int ui, int oi)
+int partition(int *Array, int ui, int oi, int (*cmpfct) (int *, int *))
 {
    int *comp = Array + ui;           /* Zeiger auf Grenzwert */
    int i = ui + 1, j = oi;           /* Laufindizes */
@@ -31,10 +33,10 @@ int partition(int *Array, int ui, int oi)
    while (i <= j)
    {
       // nächstes Element > *comp von links suchen (im linken Teil)
-      while (i <= j && (*(Array + i) <= *comp))
+      while (i <= j && (cmpfct(Array + i, comp) <= 0))
          i++;
       // nächstes Element < *comp von rechts suchen (im rechten Teil)
-      while (j >= i && (*(Array + j) >= *comp))
+      while (j >= i && (cmpfct(Array + j, comp) >= 0))
          j--;
 
       if (i < j)
@@ -62,7 +64,7 @@ int partition(int *Array, int ui, int oi)
  *            oi - der obere Index (entsprechend ui)      *
  * Rückgabe:  keine                                       *
  **********************************************************/
-void qsort(int *Array, int ui, int oi)
+void Qsort(int *Array, int ui, int oi, int (*cmpfct) (int *, int *))
 {
    int idx;      /* Grenzwert einer Zerlegung */
 
@@ -70,9 +72,9 @@ void qsort(int *Array, int ui, int oi)
       return;
    else
    {
-      idx = partition(Array, ui, oi);
-      qsort(Array, ui, idx – 1); /* linken Teil rekursiv sortieren */
-      qsort(Array, idx + 1, oi); /* rechten Teil rekursiv sortieren */
+      idx = partition(Array, ui, oi, cmpfct);
+      Qsort(Array, ui, idx – 1, cmpfct); /* linken Teil rekursiv sortieren */
+      Qsort(Array, idx + 1, oi, cmpfct); /* rechten Teil rekursiv sortieren */
    }
 }
 
@@ -84,9 +86,9 @@ void qsort(int *Array, int ui, int oi)
 *            Anzahl – Anzahl der Elemente im Array         *
 * Rückgabe:  keine                                         *
 ***********************************************************/
-void QuickSort(int *Array, int Anzahl)
+void QuickSort(int *Array, int Anzahl, int (*cmpfct) (int *, int *))
 {
-   qsort(Array, 0, Anzahl – 1);
+   Qsort(Array, 0, Anzahl – 1, cmpfct);
 }
 
 void sortName()
@@ -118,9 +120,14 @@ void sortTriknr()
 
 void sortTore()
 {
+   int i;
    clearScreen();
    printf("Spieler nach Anzahl geschossener Tore sortieren ... ");
    // sortieren
+   for(i = 0; i < TeamCounter; i++)
+   {
+      QuickSort(Teams[i].player, Teams[i].NumOfPlayers, );
+   }
    printf("ok\n");
    waitForEnter();
 }

@@ -84,25 +84,25 @@ void sortTeams()
    clearScreen();
 
    char *title = "Sortieren";
-   short Wahl;
+   short Wahl = 0;
    char menu[5][48] = {"Spieler nach Namen sortieren",
                       "Spieler nach Geburtsdatum (Alter) sortieren",
                       "Spieler nach Trikotnr. Sortieren",
                       "Spieler nach Anzahl geschossener Tore sortieren",
-                      "zurueck zum Hauptmenue"};
+                      "Zurueck zum Hauptmenue"};
 
    while(Wahl != 5)
    {
       Wahl = SgetMenu(title, menu);
       switch(Wahl)
       {
-         case 1:sortName();
+         case 1: sortName();
                  break;
-         case 2:sortAlter();
+         case 2: sortAlter();
                  break;
-         case 3:sortTriknr();
+         case 3: sortTriknr();
                  break;
-         case 4:sortTore();
+         case 4: sortTore();
                  break;
       }
    }

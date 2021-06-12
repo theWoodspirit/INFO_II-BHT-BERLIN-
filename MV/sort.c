@@ -1,24 +1,39 @@
 #include <stdio.h>
 #include <stdlib.h>
-#include "sort.h"
+#include "tools.h"
 
 void sortName()
 {
-    printf("Spieler nach Namen sortiert\n");
-    waitForEnter();
+   clearScreen();
+   printf("Spieler nach Namen sortieren ... ");
+   // sortieren
+   printf("ok\n");
+   waitForEnter();
 }
+
 void sortAlter()
 {
-    printf("Spieler nach Geburtsdatum (Alter) sortiert\n");
-    waitForEnter();
+   clearScreen();
+   printf("Spieler nach Geburtsdatum (Alter) sortieren ... ");
+   // Sortieren
+   printf("ok\n");
+   waitForEnter();
 }
+
 void sortTriknr()
 {
-    printf("Spieler nach Trikotnr. sortiert");
-    waitForEnter();
+   clearScreen();
+   printf("Spieler nach Trikotnr. sortieren ... ");
+   // sortieren
+   printf("ok\n");
+   waitForEnter();
 }
+
 void sortTore()
 {
-    printf("Spieler nach Anzahl geschossener Tore sortiert");
-    waitForEnter();
+   clearScreen();
+   printf("Spieler nach Anzahl geschossener Tore sortieren ... ");
+   // sortieren
+   printf("ok\n");
+   waitForEnter();
 }

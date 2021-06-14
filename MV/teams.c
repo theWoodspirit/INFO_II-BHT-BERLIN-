@@ -127,7 +127,8 @@ void listOneTeam(sTeam team)
 
    printf("Anzahl Spieler : %d\n", team.NumOfPlayers);
    printf("Spieler:\n");
-   for(int i = 0; i < team.NumOfPlayers; i++)
+   int i;
+   for(i = 0; i < team.NumOfPlayers; i++)
       listOnePlayer(team.player[i], i);
 }
 
@@ -137,8 +138,8 @@ void listTeams()
    printf("Liste der Mannschaften\n");
    printLine('=', 23);
    printf("\n");
-
-   for(int i = 0; i < TeamCounter; i++)
+   int i;
+   for(i = 0; i < TeamCounter; i++)
       listOneTeam(Teams[i]);
 
    waitForEnter();
@@ -179,7 +180,4 @@ void freeMemOfAllTeams()
       freeMemOfOneTeam(Teams[i]);
 }
 
-int (*cmpfct) (int *Wert1, int *Wert2)
-{
-   return *Wert1 - *Wert2;
-}
+

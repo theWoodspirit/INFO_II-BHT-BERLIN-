@@ -4,130 +4,65 @@
 #include "teams.h"
 #include "datastructure.h"
 
-void tausche(int *e1, int *e2)
-{
-   int temp;
 
-   temp = *e1;
-   *e1 = *e2;
-   *e2 = temp;
+void swap(sPlayer a, sPlayer b) {
+  sPlayer player = a;
+  a = b;
+  b = player;
+  printf("%d wird zu %d \n",a.JerseyNumber,b.JerseyNumber);
+  sleep(0.5);
 }
 
-/**********************************************************
- * int partition(int *Array, int ui, int oi)              *
- * Unterteilt das angegebene Array in zwei Teile, wobei   *
- * im linken Teil alle Werte kleiner und im rechten Teil  *
- * alle Werte größer als die mittlere Schranke sind. Der  *
- * Index der Schranke wird zurückgegeben.                 *
- * Parameter: Array – das zu sortierende Array            *
- *            ui - der untere Index des Teils des         *
- *            Arrays, der sortiert werden soll            *
- *            oi - der obere Index (entsprechend ui)      *
- * Rückgabe:  int - Index der Schranke                    *
- **********************************************************/
-int partition(int *Array, int ui, int oi, int (*cmpfct) (int *, int *))
-{
-   int *comp = Array + ui;           /* Zeiger auf Grenzwert */
-   int i = ui + 1, j = oi;           /* Laufindizes */
 
-   while (i <= j)
-   {
-      // nächstes Element > *comp von links suchen (im linken Teil)
-      while (i <= j && (cmpfct(Array + i, comp) <= 0))
-         i++;
-      // nächstes Element < *comp von rechts suchen (im rechten Teil)
-      while (j >= i && (cmpfct(Array + j, comp) >= 0))
-         j--;
+int partition(sTeam team, int low, int high) {
 
-      if (i < j)
-      {
-         tausche(Array + i, Array + j);
-         i++;
-         j--;
-      }
-   }
-   i--;
-   /* setze Grenzwert zwischen beide Teile */
-   tausche(comp, Array + i);
 
-   return i; // Position des Grenzwertes zurückgeben
+  int pivot = team.player[high].JerseyNumber;
+
+
+  int i = (low - 1);
+  int j;
+
+  for (j = low; j < high; j++) {
+    if (team.player[j].JerseyNumber <= pivot) {
+
+
+      i++;
+
+
+      swap(team.player[i], team.player[j]);
+    }
+  }
+
+
+  swap(team.player[i + 1], team.player[high]);
+
+
+  return (i + 1);
 }
 
-/**********************************************************
- * void qsort(int *Array, int ui, int oi)                 *
- * Unterteilt das Array in zwei Teile (Funktion           *
- * partition) und ruft sich selber für beide Teile        *
- * erneut auf.                                            *
- * Parameter: Array – das zu sortierende Array            *
- *            ui - der untere Index des Teils des         *
- *            Arrays, der sortiert werden soll            *
- *            oi - der obere Index (entsprechend ui)      *
- * Rückgabe:  keine                                       *
- **********************************************************/
-void Qsort(int *Array, int ui, int oi, int (*cmpfct) (int *, int *))
-{
-   int idx;      /* Grenzwert einer Zerlegung */
+void quickSortTrikotNr(sTeam team, int low, int high) {
+  if (low < high) {
 
-   if (ui >= oi) /* Abbruchbedingung der Rekursion */
-      return;
-   else
-   {
-      idx = partition(Array, ui, oi, cmpfct);
-      Qsort(Array, ui, idx – 1, cmpfct); /* linken Teil rekursiv sortieren */
-      Qsort(Array, idx + 1, oi, cmpfct); /* rechten Teil rekursiv sortieren */
-   }
+    int pi = partition(team, low, high);
+
+
+    quickSortTrikotNr(team, low, pi - 1);
+
+
+    quickSortTrikotNr(team, pi + 1, high);
+  }
 }
 
-/***********************************************************
-* Quick-Sort                                               *
-* Sortiert das angegebene Zahlen-Array in aufsteigender    *
-* Reihenfolge.                                             *
-* Parameter: Array – Zeiger auf das zu sortierende Array   *
-*            Anzahl – Anzahl der Elemente im Array         *
-* Rückgabe:  keine                                         *
-***********************************************************/
-void QuickSort(int *Array, int Anzahl, int (*cmpfct) (int *, int *))
-{
-   Qsort(Array, 0, Anzahl – 1, cmpfct);
+void sortName(){
 }
-
-void sortName()
-{
-   clearScreen();
-   printf("Spieler nach Namen sortieren ... ");
-   // sortieren
-   printf("ok\n");
-   waitForEnter();
+void sortAlter(){
 }
-
-void sortAlter()
-{
-   clearScreen();
-   printf("Spieler nach Geburtsdatum (Alter) sortieren ... ");
-   // Sortieren
-   printf("ok\n");
-   waitForEnter();
+void sortTriknr(){
+    int i;
+    for(i = 0; i < TeamCounter; i++){
+        quickSortTrikotNr(Teams[i], 0 , Teams[i].NumOfPlayers-1);
+    }
 }
-
-void sortTriknr()
-{
-   clearScreen();
-   printf("Spieler nach Trikotnr. sortieren ... ");
-   // sortieren
-   printf("ok\n");
-   waitForEnter();
-}
-
-void sortTore()
-{
-   int i;
-   clearScreen();
-   printf("Spieler nach Anzahl geschossener Tore sortieren ... ");
-   // sortieren
-   for(i = 0; i < TeamCounter; i++)
-   {
-      QuickSort(Teams[i].player, Teams[i].NumOfPlayers, );
-   }
-   printf("ok\n");
-   waitForEnter();
+void sortTore(){
 }

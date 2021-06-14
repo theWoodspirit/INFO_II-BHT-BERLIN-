@@ -9,7 +9,7 @@
 
 int main()
 {
-   char *title = "Mannschaften-Verwaltung V0.0";
+   char *title = "Mannschaften-Verwaltung V5.2";
    short ChosenMenu;
    char menu[8][24] = {
    "Neue Mannschaft anlegen",

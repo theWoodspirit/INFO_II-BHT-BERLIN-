@@ -103,7 +103,7 @@ void loadPlayer(FILE *datei, sPlayer *Player)
          {
             sDate *date = malloc(sizeof(sDate));
             InputDate = calloc(11, sizeof(char));
-            strncpy(InputDate, Zeilenanfang + 10, 10);
+            strncpy(InputDate, Zeilenanfang + 10, len);
             // Textendezeichen hinzufügen, wegen Abfrage in getDateFromString
             *(InputDate + 11) = '\0';
             getDateFromString(InputDate, date);
@@ -182,6 +182,17 @@ void loadTeam(FILE *datei, sTeam *team)
          {
             loadPlayer(datei, team->player + team->NumOfPlayers);
             team->NumOfPlayers++;
+         }
+         else
+         {
+            do
+            {
+               fscanf(datei, "%100[^\n]%c", Zeile, &Buffer);
+
+               Zeilenanfang = Zeile;
+               while((*Zeilenanfang == ' ') || (*Zeilenanfang == 9))
+                  Zeilenanfang++;
+            } while(strncmp(Zeilenanfang, "</Player>", 9) != 0);
          }
       }
       else if(feof(datei))

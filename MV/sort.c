@@ -4,13 +4,24 @@
 #include "teams.h"
 #include "datastructure.h"
 
-void tausche(int *e1, int *e2)
+void tausche(sPlayer *e1, sPlayer *e2)
 {
-   int temp;
+   sPlayer *temp = malloc(sizeof(sPlayer));
 
-   temp = *e1;
-   *e1 = *e2;
-   *e2 = temp;
+   if(temp)
+   {
+      *temp = *e1;
+      *e1 = *e2;
+      *e2 = *temp;
+      free(temp);
+   }
+   else
+      printf("\nKonnte kein Speicher fuer tausche-fkt reservieren.\n");
+}
+
+int cmpTricotNr(sPlayer *player1, sPlayer *player2)
+{
+   return player1->JerseyNumber - player2->JerseyNumber;
 }
 
 /**********************************************************
@@ -25,29 +36,29 @@ void tausche(int *e1, int *e2)
  *            oi - der obere Index (entsprechend ui)      *
  * Rückgabe:  int - Index der Schranke                    *
  **********************************************************/
-int partitionTricotNr(sTeam *team, int ui, int oi)//, int (*cmpfct) (int *, int *))
+int partitionTricotNr(sTeam *team, int ui, int oi, int (*cmpfct) (sPlayer *, sPlayer *))
 {
    int i = ui + 1, j = oi;                            /* Laufindizes */
 
-   while (i <= j)
+   while(i <= j)
    {
       // nächstes Element > *comp von links suchen (im linken Teil)
-      while (i <= j && (team->player[i].JerseyNumber <= team->player[ui].JerseyNumber))
+      while (i <= j && (cmpfct(&team->player[i], &team->player[ui]) <= 0))
          i++;
       // nächstes Element < *comp von rechts suchen (im rechten Teil)
-      while (j >= i && (team->player[j].JerseyNumber >= team->player[ui].JerseyNumber))
+      while (j >= i && (cmpfct(&team->player[i], &team->player[ui]) >= 0))
          j--;
 
-      if (i < j)
+      if(i < j)
       {
-         tausche(&team->player[i].JerseyNumber, &team->player[j].JerseyNumber);
+         tausche(&team->player[i], &team->player[j]);
          i++;
          j--;
       }
    }
    i--;
    /* setze Grenzwert zwischen beide Teile */
-   tausche(&team->player[ui].JerseyNumber, &team->player[i].JerseyNumber);
+   tausche(&team->player[ui], &team->player[i]);
 
    return i; // Position des Grenzwertes zurückgeben
 }
@@ -63,7 +74,7 @@ int partitionTricotNr(sTeam *team, int ui, int oi)//, int (*cmpfct) (int *, int 
  *            oi - der obere Index (entsprechend ui)      *
  * Rückgabe:  keine                                       *
  **********************************************************/
-void QsortTricotnr(sTeam *team, int ui, int oi)//, int (*cmpfct) (int *, int *))
+void QsortTricotnr(sTeam *team, int ui, int oi, int (*cmpfct) (sPlayer *, sPlayer *))
 {
    int idx;      /* Grenzwert einer Zerlegung */
 
@@ -71,9 +82,9 @@ void QsortTricotnr(sTeam *team, int ui, int oi)//, int (*cmpfct) (int *, int *))
       return;
    else
    {
-      idx = partitionTricotNr(team, ui, oi);//, cmpfct);
-      QsortTricotnr(team, ui, idx - 1);//, cmpfct); /* linken Teil rekursiv sortieren */
-      QsortTricotnr(team, idx + 1, oi);//, cmpfct); /* rechten Teil rekursiv sortieren */
+      idx = partitionTricotNr(team, ui, oi, cmpfct);
+      QsortTricotnr(team, ui, idx - 1, cmpfct); /* linken Teil rekursiv sortieren */
+      QsortTricotnr(team, idx + 1, oi, cmpfct); /* rechten Teil rekursiv sortieren */
    }
 }
 
@@ -85,9 +96,9 @@ void QsortTricotnr(sTeam *team, int ui, int oi)//, int (*cmpfct) (int *, int *))
 *            Anzahl – Anzahl der Elemente im Array         *
 * Rückgabe:  keine                                         *
 ***********************************************************/
-void QuickSortTricotNr(sTeam *team, int Anzahl)//, int (*cmpfct) (int *, int *))
+void QuickSortTricotNr(sTeam *team, int Anzahl, int (*cmpfct) (sPlayer *, sPlayer *))
 {
-   QsortTricotnr(team, 0, Anzahl - 1);//, cmpfct);
+   QsortTricotnr(team, 0, Anzahl - 1, cmpfct);
 }
 
 void sortName()
@@ -116,7 +127,7 @@ void sortTriknr()
    // sortieren
    for(i = 0; i < TeamCounter; i++)
    {
-      QuickSortTricotNr(&Teams[i], Teams[i].NumOfPlayers);
+      QuickSortTricotNr(&Teams[i], Teams[i].NumOfPlayers, cmpTricotNr);
    }
    printf("ok\n");
    waitForEnter();

@@ -178,8 +178,9 @@ void freeMemOfAllTeams()
    for(i = 0; i < TeamCounter; i++)
       freeMemOfOneTeam(Teams[i]);
 }
-
+/*
 int (*cmpfct) (int *Wert1, int *Wert2)
 {
    return *Wert1 - *Wert2;
 }
+*/

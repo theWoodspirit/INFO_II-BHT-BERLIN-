@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include <string.h>
 #include "tools.h"
 #include "teams.h"
 #include "datastructure.h"
@@ -19,6 +20,25 @@ void tausche(sPlayer *e1, sPlayer *e2)
       printf("\nKonnte kein Speicher fuer tausche-fkt reservieren.\n");
 }
 
+int cmpPlayerName(sPlayer *player1, sPlayer *player2)
+{
+   /* Wenn strncmp > 0, dann ist Name von player1 weiter hinten alphabetisch,
+   als von player2 -> Spieler tauschen */
+   return (strncmp(player1->PlayerName, player2->PlayerName, sizeof(player1->PlayerName)));
+}
+
+int cmpGoals(sPlayer *player1, sPlayer *player2)
+{
+   int dif = player1->goals - player2->goals;
+
+   if(!dif)
+   {
+      return (cmpPlayerName(player1, player2));
+   }
+   else
+      return dif;
+}
+
 int cmpTricotNr(sPlayer *player1, sPlayer *player2)
 {
    return player1->JerseyNumber - player2->JerseyNumber;
@@ -36,7 +56,7 @@ int cmpTricotNr(sPlayer *player1, sPlayer *player2)
  *            oi - der obere Index (entsprechend ui)      *
  * Rückgabe:  int - Index der Schranke                    *
  **********************************************************/
-int partitionTricotNr(sTeam *team, int ui, int oi, int (*cmpfct) (sPlayer *, sPlayer *))
+int partition(sTeam *team, int ui, int oi, int (*cmpfct) (sPlayer *, sPlayer *))
 {
    int i = ui + 1, j = oi;                            /* Laufindizes */
 
@@ -46,7 +66,7 @@ int partitionTricotNr(sTeam *team, int ui, int oi, int (*cmpfct) (sPlayer *, sPl
       while (i <= j && (cmpfct(&team->player[i], &team->player[ui]) <= 0))
          i++;
       // nächstes Element < *comp von rechts suchen (im rechten Teil)
-      while (j >= i && (cmpfct(&team->player[i], &team->player[ui]) >= 0))
+      while (j >= i && (cmpfct(&team->player[j], &team->player[ui]) >= 0))
          j--;
 
       if(i < j)
@@ -74,7 +94,7 @@ int partitionTricotNr(sTeam *team, int ui, int oi, int (*cmpfct) (sPlayer *, sPl
  *            oi - der obere Index (entsprechend ui)      *
  * Rückgabe:  keine                                       *
  **********************************************************/
-void QsortTricotnr(sTeam *team, int ui, int oi, int (*cmpfct) (sPlayer *, sPlayer *))
+void Qsort(sTeam *team, int ui, int oi, int (*cmpfct) (sPlayer *, sPlayer *))
 {
    int idx;      /* Grenzwert einer Zerlegung */
 
@@ -82,9 +102,9 @@ void QsortTricotnr(sTeam *team, int ui, int oi, int (*cmpfct) (sPlayer *, sPlaye
       return;
    else
    {
-      idx = partitionTricotNr(team, ui, oi, cmpfct);
-      QsortTricotnr(team, ui, idx - 1, cmpfct); /* linken Teil rekursiv sortieren */
-      QsortTricotnr(team, idx + 1, oi, cmpfct); /* rechten Teil rekursiv sortieren */
+      idx = partition(team, ui, oi, cmpfct);
+      Qsort(team, ui, idx - 1, cmpfct); /* linken Teil rekursiv sortieren */
+      Qsort(team, idx + 1, oi, cmpfct); /* rechten Teil rekursiv sortieren */
    }
 }
 
@@ -96,16 +116,22 @@ void QsortTricotnr(sTeam *team, int ui, int oi, int (*cmpfct) (sPlayer *, sPlaye
 *            Anzahl – Anzahl der Elemente im Array         *
 * Rückgabe:  keine                                         *
 ***********************************************************/
-void QuickSortTricotNr(sTeam *team, int Anzahl, int (*cmpfct) (sPlayer *, sPlayer *))
+void QuickSort(sTeam *team, int Anzahl, int (*cmpfct) (sPlayer *, sPlayer *))
 {
-   QsortTricotnr(team, 0, Anzahl - 1, cmpfct);
+   //printf("\n%d\n", cmpfct(&team->player[0], &team->player[1]));
+   Qsort(team, 0, Anzahl - 1, cmpfct);
 }
 
 void sortName()
 {
+   int i;
    clearScreen();
    printf("Spieler nach Namen sortieren ... ");
+
    // sortieren
+   for(i = 0; i < TeamCounter; i++)
+      QuickSort(&Teams[i], Teams[i].NumOfPlayers, cmpPlayerName);
+
    printf("ok\n");
    waitForEnter();
 }
@@ -124,25 +150,25 @@ void sortTriknr()
    int i;
    clearScreen();
    printf("Spieler nach Trikotnr. sortieren ... ");
+
    // sortieren
    for(i = 0; i < TeamCounter; i++)
-   {
-      QuickSortTricotNr(&Teams[i], Teams[i].NumOfPlayers, cmpTricotNr);
-   }
+      QuickSort(&Teams[i], Teams[i].NumOfPlayers, cmpTricotNr);
+
    printf("ok\n");
    waitForEnter();
 }
 
 void sortTore()
 {
-   //int i;
+   int i;
    clearScreen();
    printf("Spieler nach Anzahl geschossener Tore sortieren ... ");
+
    // sortieren
-   /*for(i = 0; i < TeamCounter; i++)
-   {
-      QuickSort(Teams[i].player, Teams[i].NumOfPlayers, );
-   }*/
+   for(i = 0; i < TeamCounter; i++)
+      QuickSort(&Teams[i], Teams[i].NumOfPlayers, cmpGoals);
+
    printf("ok\n");
    waitForEnter();
 }

@@ -5,9 +5,9 @@ void sortName();
 void sortAlter();
 void sortTriknr();
 void sortTore();
-void QuickSortTricotNr(sTeam *team, int Anzahl, int (*cmpfct) (sPlayer *, sPlayer *));
-void QsortTricotnr(sTeam *team, int ui, int oi, int (*cmpfct) (sPlayer *, sPlayer *));
-int partitionTricotNr(sTeam *team, int ui, int oi, int (*cmpfct) (sPlayer *, sPlayer *));
+void QuickSort(sTeam *team, int Anzahl, int (*cmpfct) (sPlayer *, sPlayer *));
+void Qsort(sTeam *team, int ui, int oi, int (*cmpfct) (sPlayer *, sPlayer *));
+int partition(sTeam *team, int ui, int oi, int (*cmpfct) (sPlayer *, sPlayer *));
 void tausche(sPlayer *e1, sPlayer *e2);
 int cmpTricotNr(sPlayer *player1, sPlayer *player2);
 

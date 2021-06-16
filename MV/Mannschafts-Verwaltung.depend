@@ -251,7 +251,7 @@
 
 1622572932 c:\users\jakob\onedrive - beuthhs\dokumente\beuth hochschule\2. semetser\informatik 2\Übungsaufgaben\Übung 5\mannschafts-verwaltung\database.h
 
-1623400852 source:c:\users\jakob\onedrive - beuthhs\dokumente\github\info_ii\mv\database.c
+1623710677 source:c:\users\jakob\onedrive - beuthhs\dokumente\github\info_ii\mv\database.c
 	<stdio.h>
 	<stdlib.h>
 	<string.h>
@@ -274,7 +274,7 @@
 
 1620644508 c:\users\jakob\onedrive - beuthhs\dokumente\github\info_ii\mv\tools.h
 
-1622655516 source:c:\users\jakob\onedrive - beuthhs\dokumente\github\info_ii\mv\main.c
+1623704176 source:c:\users\jakob\onedrive - beuthhs\dokumente\github\info_ii\mv\main.c
 	<stdio.h>
 	<stdlib.h>
 	"datastructure.h"
@@ -300,7 +300,7 @@
 	"teams.h"
 	"datastructure.h"
 
-1623696775 c:\users\jakob\onedrive - beuthhs\dokumente\github\info_ii\mv\sort.h
+1623795906 c:\users\jakob\onedrive - beuthhs\dokumente\github\info_ii\mv\sort.h
 
 1622806154 source:c:\users\jakob\onedrive - beuthhs\dokumente\github\info_ii\mv\tools.c
 	<stdio.h>
@@ -308,7 +308,7 @@
 	<string.h>
 	"teams.h"
 
-1623692175 source:c:\users\jakob\onedrive - beuthhs\dokumente\github\info_ii\mv\teams.c
+1623798043 source:c:\users\jakob\onedrive - beuthhs\dokumente\github\info_ii\mv\teams.c
 	<stdio.h>
 	<stdlib.h>
 	<string.h>

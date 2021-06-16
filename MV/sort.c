@@ -20,11 +20,23 @@ void tausche(sPlayer *e1, sPlayer *e2)
       printf("\nKonnte kein Speicher fuer tausche-fkt reservieren.\n");
 }
 
+int cmpDate(sPlayer *player1, sPlayer *player2)
+{
+   if(player1->DateOfBirth->Year - player2->DateOfBirth->Year)
+      return player1->DateOfBirth->Year - player2->DateOfBirth->Year;
+
+   if(player1->DateOfBirth->Month - player2->DateOfBirth->Month)
+      return player1->DateOfBirth->Month - player2->DateOfBirth->Month;
+
+   return player1->DateOfBirth->Day - player2->DateOfBirth->Day;
+}
+
 int cmpPlayerName(sPlayer *player1, sPlayer *player2)
 {
+   int n = sizeof(player1->PlayerName);
    /* Wenn strncmp > 0, dann ist Name von player1 weiter hinten alphabetisch,
    als von player2 -> Spieler tauschen */
-   return (strncmp(player1->PlayerName, player2->PlayerName, sizeof(player1->PlayerName)));
+   return strncmp(player1->PlayerName, player2->PlayerName, n);
 }
 
 int cmpGoals(sPlayer *player1, sPlayer *player2)
@@ -33,7 +45,7 @@ int cmpGoals(sPlayer *player1, sPlayer *player2)
 
    if(!dif)
    {
-      return (cmpPlayerName(player1, player2));
+      return cmpPlayerName(player1, player2);
    }
    else
       return dif;
@@ -138,9 +150,13 @@ void sortName()
 
 void sortAlter()
 {
+   int i;
    clearScreen();
    printf("Spieler nach Geburtsdatum (Alter) sortieren ... ");
    // Sortieren
+   for(i = 0; i < TeamCounter; i++)
+      QuickSort(&Teams[i], Teams[i].NumOfPlayers, cmpDate);
+
    printf("ok\n");
    waitForEnter();
 }

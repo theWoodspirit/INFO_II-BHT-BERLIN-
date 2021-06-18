@@ -110,10 +110,10 @@ void sortTeams()
 
 void listOnePlayer(sPlayer player, int i)
 {
-   printf("   %02d. %s (%d;", i + 1, player.PlayerName, player.JerseyNumber);
+   printf("   %02d. %s (%d", i + 1, player.PlayerName, player.JerseyNumber);
    if(player.DateOfBirth)
    {
-      printf(" * ");
+      printf("; * ");
       printDate(player.DateOfBirth);
    }
    if(player.goals == 1)

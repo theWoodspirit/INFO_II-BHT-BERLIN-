@@ -22,6 +22,11 @@ void tausche(sPlayer *e1, sPlayer *e2)
 
 int cmpDate(sPlayer *player1, sPlayer *player2)
 {
+   if(!player1->DateOfBirth)
+      return 1;
+   if(!player2->DateOfBirth)
+      return -1;
+
    if(player1->DateOfBirth->Year - player2->DateOfBirth->Year)
       return player1->DateOfBirth->Year - player2->DateOfBirth->Year;
 
@@ -47,8 +52,7 @@ int cmpGoals(sPlayer *player1, sPlayer *player2)
    {
       return cmpPlayerName(player1, player2);
    }
-   else
-      return dif;
+   return dif;
 }
 
 int cmpTricotNr(sPlayer *player1, sPlayer *player2)
@@ -130,7 +134,6 @@ void Qsort(sTeam *team, int ui, int oi, int (*cmpfct) (sPlayer *, sPlayer *))
 ***********************************************************/
 void QuickSort(sTeam *team, int Anzahl, int (*cmpfct) (sPlayer *, sPlayer *))
 {
-   //printf("\n%d\n", cmpfct(&team->player[0], &team->player[1]));
    Qsort(team, 0, Anzahl - 1, cmpfct);
 }
 

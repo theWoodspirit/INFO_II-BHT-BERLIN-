@@ -6,13 +6,14 @@
 #include "datetime.h"
 #include "menu.h"
 #include "sort.h"
+#include "list.h"
 
 int TeamCounter = 0;
-sTeam Teams[MAXTEAMS];
+sTeam *FirstTeam = NULL;
+sTeam *LastTeam = NULL;
 
-void addPlayer()
+void addPlayer(sTeam *team)
 {
-   sTeam *team = Teams + TeamCounter;
    if(team->NumOfPlayers < MAXPLAYER)
    {
       sPlayer *pPlayer = team->player + team->NumOfPlayers;
@@ -33,9 +34,13 @@ void addPlayer()
 
 void createTeam()
 {
-   if(TeamCounter < MAXTEAMS)
+   sTeam *team = malloc(sizeof(sTeam));
+
+   if(team)
    {
-      sTeam *team = Teams + TeamCounter;
+      team->Prev = NULL;
+      team->Next = NULL;
+
       clearScreen();
       printf("Erfassung einer neuen Mannschaft\n");
       printLine('=', 32);
@@ -52,12 +57,12 @@ void createTeam()
       team->NumOfPlayers = 0;
       do
       {
-         addPlayer();
-      } while(askYesOrNo("\nMoechten Sie einen weiteren Spieler eingeben (j/n) ? "));
+         addPlayer(team);
+      } while(askYesOrNo("Moechten Sie einen weiteren Spieler eingeben (j/n) ? "));
       TeamCounter++;
+
+      insertDListElement(team, cmpTeamNameForwrd);
    }
-   else
-      printf("\nTeamplaetze voll!\n");
    waitForEnter();
 }
 
@@ -122,28 +127,61 @@ void listOnePlayer(sPlayer player, int i)
       printf("; %d Tore)\n", player.goals);
 }
 
-void listOneTeam(sTeam team)
+void listOneTeam(sTeam *team)
 {
-   printf("\nName           : %s\n", team.TeamName);
-   if(team.CoachName)
-      printf("Trainer        : %s\n", team.CoachName);
+   printf("\nName           : %s\n", team->TeamName);
+   if(team->CoachName)
+      printf("Trainer        : %s\n", team->CoachName);
 
-   printf("Anzahl Spieler : %d\n", team.NumOfPlayers);
+   printf("Anzahl Spieler : %d\n", team->NumOfPlayers);
    printf("Spieler:\n");
-   for(int i = 0; i < team.NumOfPlayers; i++)
-      listOnePlayer(team.player[i], i);
+   for(int i = 0; i < team->NumOfPlayers; i++)
+      listOnePlayer(team->player[i], i);
 }
 
 void listTeams()
 {
+   short ChosenMenu;
+   sTeam *team = NULL, *tmp = FirstTeam;
+
+   // Abfrage des Menüpunktes der Ausgabe
+   ChosenMenu = ListTeamMenu();
+
+   if(ChosenMenu == 3)
+   {
+      waitForEnter();
+      return;
+   }
+
+   else if(ChosenMenu == 1)
+   {
+      while(tmp)
+      {//printf("moin\n"); tmp Zeiger zeigt nie auf null Zeiger :( -> Endlosschleife
+         insertDListElement(tmp, cmpTeamNameForwrd);
+         tmp = tmp->Next;
+      }
+   }
+
+   else if(ChosenMenu == 2)
+   {
+      while(tmp)
+      {
+         insertDListElement(tmp, cmpTeamNameBackwrd);
+         tmp = tmp->Next;
+      }
+   }
+
    clearScreen();
    printf("Liste der Mannschaften\n");
    printLine('=', 23);
    printf("\n");
+   team = FirstTeam;
 
-   for(int i = 0; i < TeamCounter; i++)
-      listOneTeam(Teams[i]);
-
+   while(team)
+   {
+      listOneTeam(team);
+      team = team->Next;
+   }
    waitForEnter();
 }
 
@@ -163,27 +201,24 @@ void freeMemOfOnePlayer(sPlayer player)
    player.DateOfBirth = NULL;
 }
 
-void freeMemOfOneTeam(sTeam team)
+void freeMemOfOneTeam(sTeam *team)
 {
    int i;
 
-   freeMem(&team.TeamName);
-   freeMem(&team.CoachName);
+   freeMem(&team->TeamName);
+   freeMem(&team->CoachName);
 
-   for(i = 0; i < team.NumOfPlayers; i++)
-      freeMemOfOnePlayer(team.player[i]);
+   for(i = 0; i < team->NumOfPlayers; i++)
+      freeMemOfOnePlayer(team->player[i]);
 }
 
 void freeMemOfAllTeams()
 {
-   int i;
+   sTeam *team = FirstTeam;
 
-   for(i = 0; i < TeamCounter; i++)
-      freeMemOfOneTeam(Teams[i]);
+   while(team)
+   {
+      freeMemOfOneTeam(team);
+      team = team->Next;
+   }
 }
-/*
-int (*cmpfct) (int *Wert1, int *Wert2)
-{
-   return *Wert1 - *Wert2;
-}
-*/

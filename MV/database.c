@@ -4,6 +4,7 @@
 #include "datastructure.h"
 #include "teams.h"
 #include "datetime.h"
+#include "list.h"
 
 void savePlayer(sPlayer Player, FILE *datei)
 {
@@ -20,17 +21,17 @@ void savePlayer(sPlayer Player, FILE *datei)
    fprintf(datei, "\t\t</Player>\n");
 }
 
-void saveTeam(sTeam team, FILE *datei)
+void saveTeam(sTeam *team, FILE *datei)
 {
    int i;
 
    fprintf(datei, "\t<Team>\n");
-   fprintf(datei, "\t\t<Name>%s</Name>\n", team.TeamName);
-   if(team.CoachName)
-      fprintf(datei, "\t\t<Trainer>%s</Trainer>\n", team.CoachName);
+   fprintf(datei, "\t\t<Name>%s</Name>\n", team->TeamName);
+   if(team->CoachName)
+      fprintf(datei, "\t\t<Trainer>%s</Trainer>\n", team->CoachName);
 
-   for(i = 0; i < team.NumOfPlayers; i++)
-      savePlayer(team.player[i], datei);
+   for(i = 0; i < team->NumOfPlayers; i++)
+      savePlayer(team->player[i], datei);
 
    fprintf(datei, "\t</Team>\n");
 }
@@ -46,9 +47,12 @@ void save()
    }
    fprintf(datei, "<Daten>\n");
 
-   int i;
-   for(i = 0; i < TeamCounter; i++)
-      saveTeam(Teams[i], datei);
+   sTeam *tmp = FirstTeam;
+   while(tmp)
+   {
+      saveTeam(tmp, datei);
+      tmp = tmp->Next;
+   }
 
    fprintf(datei, "</Daten>");
    fclose(datei);
@@ -139,6 +143,8 @@ void loadTeam(FILE *datei, sTeam *team)
    team->NumOfPlayers = 0;
    team->CoachName = NULL;
    team->TeamName = NULL;
+   team->Next = NULL;
+   team->Prev = NULL;
 
    do
    {
@@ -219,8 +225,13 @@ void load()
 
          if(strncmp(Zeilenanfang, "<Team>", 6) == 0)
          {
-            loadTeam(datei, &Teams[TeamCounter]);
-            TeamCounter++;
+            sTeam *team = malloc(sizeof(sTeam));
+            if(team)
+            {
+               loadTeam(datei, team);
+               TeamCounter++;
+               insertDListElement(team, cmpTeamNameForwrd);
+            }
          }
 
          if(feof(datei))

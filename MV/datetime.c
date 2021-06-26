@@ -30,7 +30,7 @@ int isDateValid(int d, int m, int y){
 }
 
 /* wir nutzen strtol und den pointer */
-int getDateFromString(char *input,sDate *date){
+int getDateFromString(char *input, sDate *date){
 
 	char *succ;
   	long int day = strtol(input, &succ, 10),

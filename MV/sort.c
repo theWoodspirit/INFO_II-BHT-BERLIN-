@@ -139,13 +139,17 @@ void QuickSort(sTeam *team, int Anzahl, int (*cmpfct) (sPlayer *, sPlayer *))
 
 void sortName()
 {
-   int i;
+   sTeam *team = FirstTeam;
+
    clearScreen();
    printf("Spieler nach Namen sortieren ... ");
 
    // sortieren
-   for(i = 0; i < TeamCounter; i++)
-      QuickSort(&Teams[i], Teams[i].NumOfPlayers, cmpPlayerName);
+   while(team)
+   {
+      QuickSort(team, team->NumOfPlayers, cmpPlayerName);
+      team = team->Next;
+   }
 
    printf("ok\n");
    waitForEnter();
@@ -153,12 +157,17 @@ void sortName()
 
 void sortAlter()
 {
-   int i;
+   sTeam *team = FirstTeam;
+
    clearScreen();
    printf("Spieler nach Geburtsdatum (Alter) sortieren ... ");
+
    // Sortieren
-   for(i = 0; i < TeamCounter; i++)
-      QuickSort(&Teams[i], Teams[i].NumOfPlayers, cmpDate);
+   while(team)
+   {
+      QuickSort(team, team->NumOfPlayers, cmpDate);
+      team = team->Next;
+   }
 
    printf("ok\n");
    waitForEnter();
@@ -166,13 +175,17 @@ void sortAlter()
 
 void sortTriknr()
 {
-   int i;
+   sTeam *team = FirstTeam;
+
    clearScreen();
    printf("Spieler nach Trikotnr. sortieren ... ");
 
    // sortieren
-   for(i = 0; i < TeamCounter; i++)
-      QuickSort(&Teams[i], Teams[i].NumOfPlayers, cmpTricotNr);
+   while(team)
+   {
+      QuickSort(team, team->NumOfPlayers, cmpTricotNr);
+      team = team->Next;
+   }
 
    printf("ok\n");
    waitForEnter();
@@ -180,13 +193,17 @@ void sortTriknr()
 
 void sortTore()
 {
-   int i;
+   sTeam *team = FirstTeam;
+
    clearScreen();
    printf("Spieler nach Anzahl geschossener Tore sortieren ... ");
 
    // sortieren
-   for(i = 0; i < TeamCounter; i++)
-      QuickSort(&Teams[i], Teams[i].NumOfPlayers, cmpGoals);
+   while(team)
+   {
+      QuickSort(team, team->NumOfPlayers, cmpGoals);
+      team = team->Next;
+   }
 
    printf("ok\n");
    waitForEnter();

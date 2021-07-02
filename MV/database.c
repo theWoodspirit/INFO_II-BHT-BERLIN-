@@ -189,12 +189,12 @@ void loadTeam(FILE *datei, sTeam *team)
             loadPlayer(datei, team->player + team->NumOfPlayers);
             team->NumOfPlayers++;
          }
-         else
+         else //Wenn zu viele Spieler, diese einlesen und nicht zuweisen zum Team
          {
             do
             {
                fscanf(datei, "%100[^\n]%c", Zeile, &Buffer);
-
+               // Leerzeichen / Tabulaturen am Anfang der Zeile entfernen
                Zeilenanfang = Zeile;
                while((*Zeilenanfang == ' ') || (*Zeilenanfang == 9))
                   Zeilenanfang++;
@@ -229,8 +229,7 @@ void load()
             if(team)
             {
                loadTeam(datei, team);
-               TeamCounter++;
-               insertDListElement(team, cmpTeamNameForwrd);
+               insertDListElement(team, cmpTeamName);
             }
          }
 

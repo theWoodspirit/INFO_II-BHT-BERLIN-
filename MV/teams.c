@@ -8,7 +8,6 @@
 #include "sort.h"
 #include "list.h"
 
-int TeamCounter = 0;
 sTeam *FirstTeam = NULL;
 sTeam *LastTeam = NULL;
 
@@ -46,8 +45,8 @@ void createTeam()
       printLine('=', 32);
       printf("\n\n");
 
-      while(!getText("Geben Sie bitte den Namen der Mannschaft ein:\n-> ", 35,
-                     0, &team->TeamName));
+      getText("Geben Sie bitte den Namen der Mannschaft ein:\n-> ", 35,
+                     0, &team->TeamName);
 
       getText("Geben Sie bitte den Namen des Trainers ein:\n-> ", 40, 1,
               &team->CoachName);
@@ -59,16 +58,57 @@ void createTeam()
       {
          addPlayer(team);
       } while(askYesOrNo("Moechten Sie einen weiteren Spieler eingeben (j/n) ? "));
-      TeamCounter++;
 
-      insertDListElement(team, cmpTeamNameForwrd);
+      insertDListElement(team, cmpTeamName);
    }
    waitForEnter();
 }
 
+int listTeamnames()
+{
+   int i = 1;
+   sTeam *tmp = FirstTeam;
+
+   while(tmp)
+   {
+      printf("%3d: %s\n", i, tmp->TeamName);
+      tmp = tmp->Next;
+      i++;
+   }
+   return i--;
+}
+
 void deleteTeam()
 {
+   int del, NumOfTeams, i;
+   sTeam *tmp = FirstTeam;
+
+   clearScreen();
    printf("deleteTeam\n");
+   printLine('=', 10);
+   printf("\n\n");
+   NumOfTeams = listTeamnames();
+
+   getNumber("\nWelche Mannschaft moechten Sie loeschen (0 fuer Abbrechen) ? ",
+             &del, 0, NumOfTeams);
+
+   if(!del)
+   {
+      printf("Abgebrochen!\n");
+      waitForEnter();
+      return;
+   }
+
+   i = del - 1;
+   while(i)
+   {
+      tmp = tmp->Next;
+      i--;
+   }
+
+   freeMemOfOneTeam(removeDListElement(tmp, cmpTeamName));
+   printf("geloescht!\n");
+
    waitForEnter();
 }
 
@@ -142,7 +182,7 @@ void listOneTeam(sTeam *team)
 void listTeams()
 {
    short ChosenMenu;
-   sTeam *team = NULL, *tmp = FirstTeam;
+   sTeam *tmp = NULL;
 
    // Abfrage des Menüpunktes der Ausgabe
    ChosenMenu = ListTeamMenu();
@@ -153,35 +193,30 @@ void listTeams()
       return;
    }
 
-   else if(ChosenMenu == 1)
-   {
-      while(tmp)
-      {//printf("moin\n"); tmp Zeiger zeigt nie auf null Zeiger :( -> Endlosschleife
-         insertDListElement(tmp, cmpTeamNameForwrd);
-         tmp = tmp->Next;
-      }
-   }
-
-   else if(ChosenMenu == 2)
-   {
-      while(tmp)
-      {
-         insertDListElement(tmp, cmpTeamNameBackwrd);
-         tmp = tmp->Next;
-      }
-   }
-
    clearScreen();
    printf("Liste der Mannschaften\n");
    printLine('=', 23);
    printf("\n");
-   team = FirstTeam;
 
-   while(team)
+   if(ChosenMenu == 1)
    {
-      listOneTeam(team);
-      team = team->Next;
+      tmp = FirstTeam;
+      while(tmp)
+      {
+         listOneTeam(tmp);
+         tmp = tmp->Next;
+      }
    }
+   else
+   {
+      tmp = LastTeam;
+      while(tmp)
+      {
+         listOneTeam(tmp);
+         tmp = tmp->Prev;
+      }
+   }
+
    waitForEnter();
 }
 

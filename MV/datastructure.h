@@ -29,6 +29,5 @@ typedef struct sTm
 
 extern sTeam *FirstTeam;
 extern sTeam *LastTeam;
-extern int TeamCounter;
 
 #endif

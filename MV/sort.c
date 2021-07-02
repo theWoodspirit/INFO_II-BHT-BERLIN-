@@ -142,16 +142,17 @@ void sortName()
    sTeam *team = FirstTeam;
 
    clearScreen();
-   printf("Spieler nach Namen sortieren ... ");
+   printf("Spieler nach Namen sortieren ... \n\n");
 
    // sortieren
    while(team)
    {
+      printf("Spieler der Mannschaft %s sortieren ... ", team->TeamName);
       QuickSort(team, team->NumOfPlayers, cmpPlayerName);
+      printf("ok\n");
       team = team->Next;
    }
 
-   printf("ok\n");
    waitForEnter();
 }
 
@@ -160,16 +161,17 @@ void sortAlter()
    sTeam *team = FirstTeam;
 
    clearScreen();
-   printf("Spieler nach Geburtsdatum (Alter) sortieren ... ");
+   printf("Spieler nach Geburtsdatum (Alter) sortieren ... \n\n");
 
    // Sortieren
    while(team)
    {
+      printf("Spieler der Mannschaft %s sortieren ... ", team->TeamName);
       QuickSort(team, team->NumOfPlayers, cmpDate);
+      printf("ok\n");
       team = team->Next;
    }
 
-   printf("ok\n");
    waitForEnter();
 }
 
@@ -178,16 +180,17 @@ void sortTriknr()
    sTeam *team = FirstTeam;
 
    clearScreen();
-   printf("Spieler nach Trikotnr. sortieren ... ");
+   printf("Spieler nach Trikotnr. sortieren ... \n\n");
 
    // sortieren
    while(team)
    {
+      printf("Spieler der Mannschaft %s sortieren ... ", team->TeamName);
       QuickSort(team, team->NumOfPlayers, cmpTricotNr);
+      printf("ok\n");
       team = team->Next;
    }
 
-   printf("ok\n");
    waitForEnter();
 }
 
@@ -196,15 +199,16 @@ void sortTore()
    sTeam *team = FirstTeam;
 
    clearScreen();
-   printf("Spieler nach Anzahl geschossener Tore sortieren ... ");
+   printf("Spieler nach Anzahl geschossener Tore sortieren ... \n\n");
 
    // sortieren
    while(team)
    {
+      printf("Spieler der Mannschaft %s sortieren ... ", team->TeamName);
       QuickSort(team, team->NumOfPlayers, cmpGoals);
+      printf("ok\n");
       team = team->Next;
    }
 
-   printf("ok\n");
    waitForEnter();
 }

@@ -2,18 +2,12 @@
 #include <stdlib.h>
 #include <string.h>
 #include "datastructure.h"
+#include "teams.h"
 
-// cmpTeamName wird noch in die Datei des Aufrufers gepackt, oder durch Includewächter beim Aufrufer eingesetzt
-int cmpTeamNameForwrd(sTeam *Team1, sTeam *Team2)
+int cmpTeamName(sTeam *Team1, sTeam *Team2)
 {
    int n = sizeof(Team1->TeamName);
    return strncmp(Team1->TeamName, Team2->TeamName, n);
-}
-
-int cmpTeamNameBackwrd(sTeam *Team1, sTeam *Team2)
-{
-   int n = sizeof(Team1->TeamName);
-   return strncmp(Team2->TeamName, Team1->TeamName, n);
 }
 
 void insertDListElement(sTeam *NewTeam, int (*cmpfct) (sTeam *, sTeam *))

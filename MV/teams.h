@@ -3,6 +3,7 @@
 #include "datastructure.h"
 
 void createTeam();
+int listTeamnames();
 void deleteTeam();
 void addPlayer();
 void deletePlayer();

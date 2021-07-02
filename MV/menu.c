@@ -48,7 +48,7 @@ short SgetMenu(char *title, char menu[][48])
 
 short ListTeamMenu()
 {
-   char *title = "Ausgabe";
+   char *title = "Ausgabe\n";
    char menu[3][23] = {
    "Aufwaerts ausgeben",
    "Abwaerts ausgeben",
@@ -60,7 +60,7 @@ short ListTeamMenu()
    {
       k = 0;
       clearScreen();
-      printf("%s\n", title);
+      printf(title);
       printLine('=', 7);
       printf("\n\n");
       for(i = 0; i < 3; i++)

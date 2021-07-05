@@ -75,7 +75,7 @@ int listTeamnames()
       tmp = tmp->Next;
       i++;
    }
-   return i--;
+   return --i;
 }
 
 void deleteTeam()
@@ -184,6 +184,12 @@ void listTeams()
    short ChosenMenu;
    sTeam *tmp = NULL;
 
+   if(!FirstTeam)
+   {
+      printf("\nKeine Teams vorhanden!\n");
+      waitForEnter();
+      return;
+   }
    // Abfrage des Menüpunktes der Ausgabe
    ChosenMenu = ListTeamMenu();
 
